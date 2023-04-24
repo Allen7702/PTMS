@@ -31,6 +31,9 @@
   {{-- <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css"> --}}
   <!-- summernote -->
   {{-- <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css"> --}}
+
+   <!-- Scripts -->
+   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
@@ -70,7 +73,7 @@
    
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto d-flex bg-yellow">
+    <ul class="navbar-nav ml-auto d-flex ">
       
 
       <!-- Messages Dropdown Menu -->
@@ -184,36 +187,62 @@
 
 
 <!-- Upper Section -->
-    <div class="upper">
+<div class="container-item">
+    <div class="upper mt-2">
+      <span class=" px-3">
      <a href="#">Application </a> 
-      <a href="#">/ Allen A Mgeyekwa (Udicti-Coict)</a>
+      <a href="#">/ Allen A Mgeyekwa (Udicti-Coict)</a></span>
       <div class="item-flex">
        <div > 
         <button>Edit</button>
        </div>
        <div>
         <a href="#">2 Attachments</a>
-        <a href="#"> Action</a></div>
+        <a href="#"> Action</a>
        </div>
        <div> <a href="#">1/1</a></div>
+      </div>
     </div>
+    
+
+
 <!--Lower Section -->
-    <div>
+    <div class="item-flex ">
       <!--Left section-->
+    <div class="bg-blue ">
+     <div class="item-flex ">
+      <p class="">DRAFT</p>
+      <p>DRAFT</p>
+      <p>DRAFT</p>
+      <p>DRAFT</p>
     </div>
-     <div>
-      <p>DRAFT</p>
-      <p>DRAFT</p>
-      <p>DRAFT</p>
-      <p>DRAFT</p>
-    </div>
+
+
     <div>
-      logbook
+      
     </div>
+
+
       </div>
 <!--Right section-->
-<div>
-  status
+<div class="bg-green">
+  <div class="flex">
+    <div>
+    <a href="#">Send message </a>
+    <a href="#">Log note </a> </div>
+    <div>
+      <a href="#">2 </a>
+      <a href="#">Following </a>
+      <a href="#">1 </a>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center">
+    <div class="border-t border-b border-gray-500 h-1 w-20 mr-2"></div>
+    <div class="text-center text-2xl font-bold">CENTER</div>
+    <div class="border-t border-b border-gray-500 h-1 w-20 ml-2"></div>
+  </div>
+
 </div>
 
     </div>
@@ -287,7 +316,7 @@
  </div>
 </section>
 
-
+</div>
 {{--Dorm List Ends--}}
 
 

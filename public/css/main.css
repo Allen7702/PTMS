@@ -84,3 +84,15 @@
    
     letter-spacing: 0.1rem;
 }
+.w-small{
+width: 35%;
+}
+.w-large{
+width:65%;
+}
+.arrow-border {
+    border: 20px solid transparent;
+    border-right: 10px solid #000000;
+    border-left: 20px solid #000000;
+    transform: skewX(-30deg) rotate(-45deg);
+  }

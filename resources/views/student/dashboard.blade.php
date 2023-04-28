@@ -187,7 +187,7 @@
 
 
 <!-- Upper Section -->
-<div class="container-item">
+
     <div class="upper mt-2">
       <span class=" px-3">
      <a href="#">Application </a> 
@@ -207,29 +207,74 @@
 
 
 <!--Lower Section -->
-    <div class="item-flex ">
-      <!--Left section-->
-    <div class="bg-blue ">
-     <div class="item-flex ">
-      <p class="">DRAFT</p>
-      <p>DRAFT</p>
-      <p>DRAFT</p>
-      <p>DRAFT</p>
-    </div>
-
-
-    <div>
-      
-    </div>
-
-
-      </div>
-<!--Right section-->
-<div class="bg-green">
   <div class="flex">
+      <!--Left section-->
+    <div class=" w-large ">
+
+      <div class="relative bg-blue">
+      
+        <div class="flex justify-end px-4 py-2 ">
+          <p class="mr-4">DRAFT</p>
+          <p class="mr-4">DRAFT</p>
+          <p class="mr-4">DRAFT</p>
+          <p class="mr-4">DRAFT</p>
+        </div>
+      </div>
+
+    <div class="bg-gray-300 vh-100 container">
+     fist
+     <div class="col-12 col-sm-6">
+      <div class="card card-primary card-outline card-outline-tabs">
+        <div class="card-header p-0 border-bottom-0">
+          <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="false">Arrival note</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Supervisor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill" href="#custom-tabs-four-messages" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Final Report</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" id="custom-tabs-four-settings-tab" data-toggle="pill" href="#custom-tabs-four-settings" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="true">Logbook</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content" id="custom-tabs-four-tabContent">
+            <div class="tab-pane fade" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
+             Arrival note      |
+            </div>
+            <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
+               Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam.
+            </div>
+            <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
+               Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
+            </div>
+            <div class="tab-pane fade active show" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
+               Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
+            </div>
+          </div>
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+
+     fist
+    </div>
+    
+     
+
+    </div>
+     
+   <!--Right section-->
+  <div class="bg-green w-small">
+  <div class="flex justify-between px-4">
     <div>
     <a href="#">Send message </a>
-    <a href="#">Log note </a> </div>
+    <a href="#">Log note </a>
+   </div>
     <div>
       <a href="#">2 </a>
       <a href="#">Following </a>
@@ -237,90 +282,23 @@
     </div>
   </div>
 
-  <div class="flex items-center justify-center">
-    <div class="border-t border-b border-gray-500 h-1 w-20 mr-2"></div>
-    <div class="text-center text-2xl font-bold">CENTER</div>
-    <div class="border-t border-b border-gray-500 h-1 w-20 ml-2"></div>
+   <div class="flex items-center justify-center">
+    <div class="border-t  border-gray-500 h-1 w-20 mr-2"></div>
+    <div class="text-center   whitespace-no-wrap">CENTER</div>
+    <div class="border-t  border-gray-500 h-1 w-20 ml-2"></div>
+   </div>
+
   </div>
 
-</div>
-
-    </div>
 
 
-
-
-
-  <section class="content py-5 px-5">
-    <div class="container-fluid">
-
-  <div class="card">
-    <div class="card-header header-elements-inline">
-        <h6 class="card-title">Manage Dorms</h6>
-        {{-- {!! Qs::getPanelOptions() !!} --}}
-    </div>
-
-    <div class="card-body">
-        <ul class="nav nav-tabs nav-tabs-highlight">
-            <li class="nav-item"><a href="#all-dorms" class="nav-link active" data-toggle="tab">Manage Dorms</a></li>
-            <li class="nav-item"><a href="#new-dorm" class="nav-link" data-toggle="tab"><i class="icon-plus2"></i> Create New Dorm</a></li>
-        </ul>
-
-        <div class="tab-content">
-                <div class="tab-pane fade show active" id="all-dorms">
-                    <table class="table datatable-button-html5-columns">
-                        <thead>
-                        <tr>
-                            <th>S/N</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-
-            <div class="tab-pane fade" id="new-dorm">
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <form class="ajax-store" method="post" action="">
-                            @csrf
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label font-weight-semibold">Name <span class="text-danger">*</span></label>
-                                <div class="col-lg-9">
-                                    <input name="name" value="" required type="text" class="form-control" placeholder="Name of Dormitory">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label font-weight-semibold">Description</label>
-                                <div class="col-lg-9">
-                                    <input name="description" value=""  type="text" class="form-control" placeholder="Description of Dormitory">
-                                </div>
-                            </div>
-
-                            <div class="text-right">
-                                <button id="ajax-btn" type="submit" class="btn btn-primary">Submit form <i class="icon-paperplane ml-2"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
- </div>
-</section>
-
-</div>
-{{--Dorm List Ends--}}
 
 
 <script src="{{asset('js/script.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/demo.js')}}"></script>
+
+
 <!--Bootstrap Javascript-->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>

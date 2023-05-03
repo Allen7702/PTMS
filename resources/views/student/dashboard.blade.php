@@ -223,8 +223,22 @@
 
     <div class="bg-gray-300 vh-100 container">
      fist
-     <div class="col-12 col-sm-6">
+     <div>
+       
+     <div class="col-12 col-sm-6 container">
       <div class="card card-primary card-outline card-outline-tabs">
+      <div class="flex justify-between px-4 mt-4">
+        <div>
+          <p class="mr-4">Application date</p>
+          <p class="mr-4">Company</p>
+          <p class="mr-4">Confirmation Letter</p>
+        </div>
+        <div>
+          <p class="mr-72">|  Diana </p>
+          <p class="mr-4">|  Diana </p>
+          <p class="mr-4">|  Diana </p>
+        </div>
+        </div>
         <div class="card-header p-0 border-bottom-0">
           <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
             <li class="nav-item">
@@ -247,20 +261,59 @@
              Arrival note      |
             </div>
             <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-               Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam.
-            </div>
+            Supervisor         |  Diana 
+          </div> 
             <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-               Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
+            Final Report        |  icon
             </div>
             <div class="tab-pane fade active show" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-               Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
+              ******
+            <div class="flex justify-between px-4 ">
+        <div>
+          <p class="mr-4">Logbook report Submission</p>
+          <p class="mr-4">Manage all your existing logbooks or add new logbook</p>
+         
+        </div>
+        <div>
+          <p class="mr-4"><button type="button" class="btn btn-block bg-blue-500 btn-info ">+ Add new submission</button> </p>
+        </div>
+        </div>
+       <!-- /.card-header -->
+       <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>File Submission</th>
+                      <th>Last Modified</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>183</td>
+                      <td>John Doe</td>
+                      <td>11-7-2014</td>
+                      <td><span class="tag tag-success">Approved</span></td>
+                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td>11-7-2014</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            Logbook Submission  |  icon
+            ********
             </div>
           </div>
         </div>
         <!-- /.card -->
       </div>
     </div>
-
+        </div>
      fist
     </div>
     

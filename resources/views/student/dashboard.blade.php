@@ -266,7 +266,7 @@
             <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
             Final Report        |  icon
             </div>
-            <div class="tab-pane fade active show" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
+            <div class="tab-pane fade active show" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab" onload="openModal(document.getElementById('modal_1'));">
               ******
             <div class="flex justify-between px-4 ">
         <div>
@@ -275,7 +275,7 @@
          
         </div>
         <div>
-          <p class="mr-4"><button type="button" class="btn btn-block bg-blue-500 btn-info ">+ Add new submission</button> </p>
+          <p class="mr-4"><button type="button"  id="linkModal" class="btn btn-block bg-blue-500 btn-info ">+ Add new submission</button> </p>
         </div>
         </div>
        <!-- /.card-header -->
@@ -307,19 +307,23 @@
               <!-- /.card-body -->
             Logbook Submission  |  icon
             ********
+          
             @@@@@@@@@
-            <div id="popup-container">
-   <div id="popup-window">
-      <div class="modal-content">
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
-         <a href="#" class="your-class"></a>
-         <div>
+           
+            <div id="modalpop" class="offmodal">
+        <div class="modal-container ">
+      
+      
+         <button type="button" class="closet" data-dismiss="modalpop" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
+        <p>pat</p>
+         <!-- <div>
             <div class="row text-center">
               <h1>GET STARTED</h1>
+             
           <hr>
               <p>Fill out the form below to get started today!</p>
-            </div>
-            <br>
+           </div> -->
+            <!-- <br>
             <form action="" method="post" id="footer-form">
             <div class="row">
                <div class="col-md-6">
@@ -343,12 +347,15 @@
             <input type="submit" class="btn btn-primary" value="Submit">
             </center>
             </form>
-            <br>
-         </div>
-      </div>
+            <br> -->
+            <center>
+            <input type="submit" class="btn btn-primary" value="Submit">
+            </center>
+       
    </div>
 </div>
             @@@@@@@@@
+           
             </div>
           </div>
         </div>
@@ -392,6 +399,8 @@
 <script src="{{asset('js/script.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/demo.js')}}"></script>
+<script src="{{asset('js/pop-up.js')}}"></script>
+
 
 
 <!--Bootstrap Javascript-->

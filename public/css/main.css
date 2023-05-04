@@ -96,3 +96,102 @@ width:65%;
     border-left: 20px solid #000000;
     transform: skewX(-30deg) rotate(-45deg);
   }
+
+
+  /* Pop up form */
+
+  .modal-content {
+    color: #fff;
+  }
+  
+  .modal-content input {
+    height: 57px;
+    border-radius: 0px;
+  }
+  
+  .modal-content .btn-primary {
+    width: 175px;
+    background-color: #ef9919;
+    border: 0px;
+  }
+  
+  .modal-content .btn-primary:hover {
+    background-color: #0073b7;
+    border: 0px;
+  }
+  
+  .modal-content .logorow {
+    text-align: center;
+  }
+  
+  .offmodal{
+    display: none;
+    transition: display 1s ease-in-out;
+}
+
+.onmodal{
+    display: block;
+    transition: display 1s ease-in-out;
+}
+
+#modalpop::before{
+    content: "";
+    display: block;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    user-select: none;
+}
+
+.modal-container{
+    border: 1px solid darkgray;
+    width: 75%;
+    height: 75%;
+    margin: auto;
+    background-color: white;
+    position: fixed;
+    /* top: 20%;
+    left: 8%; */
+    z-index: 2;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    top: 50%;
+    left: 50%;
+
+    -webkit-transform:translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    box-shadow:0px 2px 6px rgba(0,0,0,1);
+    font-size: .8rem;
+}
+
+.modal-container header{
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-container h2{
+    margin: 15px;
+}
+
+.modal-body{
+    padding: 5px;
+}
+
+.closet{
+    text-align: center;
+    width: 50px;
+    background-color: rgba(38, 38, 40, 0.92);
+    display: block;
+   
+    text-decoration: none;
+    font-size: xx-large;
+    padding: 8px;
+    
+}
+/*end of pop up form  */

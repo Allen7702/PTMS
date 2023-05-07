@@ -313,41 +313,41 @@
             <div id="modalpop" class="offmodal">
         <div class="modal-container ">
       
-      
+      <div class="flex justify-end">
          <button type="button" class="closet" data-dismiss="modalpop" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
-        <p>pat</p>
-         <!-- <div>
-            <div class="row text-center">
-              <h1>GET STARTED</h1>
-             
-          <hr>
-              <p>Fill out the form below to get started today!</p>
-           </div> -->
-            <!-- <br>
-            <form action="" method="post" id="footer-form">
-            <div class="row">
-               <div class="col-md-6">
-                  <input class="form-control" name="first_name" id="first_name" placeholder="First Name *" required>
-               </div>
-               <div class="col-md-6">
-                  <input class="form-control" name="last_name" id="last_name" placeholder="Last Name *" required>
-               </div>
-            </div>
-            <br>
-            <div class="row">
-               <div class="col-md-6">
-                  <input class="form-control" name="email" id="email" placeholder="Your Email *"required>
-               </div>
-               <div class="col-md-6">
-                  <input class="form-control" name="phone" placeholder="Phone *" id="phone">
-                  <br>
-               </div>
-            </div>
-            <center>
-            <input type="submit" class="btn btn-primary" value="Submit">
-            </center>
-            </form>
-            <br> -->
+        </div>
+        <div class="">
+                        <label>Week</label>
+                        <select class="form-control">
+                          <option>week 1</option>
+                          <option>week 2</option>
+                          <option>week 3</option>
+                          <option>week 4</option>
+                          <option>week 5</option>
+                          <option>week 6</option>
+                          <option>week 7</option>
+                          <option>week 8</option>
+                        </select>
+                        
+                <table class="table table-bordered table-hover m-2">
+                  <thead>
+                    <tr>
+                      <th>DAY/DATE</th>
+                      <th>ACTIVITY</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-widget="expandable-table" aria-expanded="false">
+                      <td>11-7-2014</td>
+                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+
+        </div>
+        
             <center>
             <input type="submit" class="btn btn-primary" value="Submit">
             </center>

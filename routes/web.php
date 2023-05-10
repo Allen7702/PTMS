@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('student.dashboard', [StudentController::class, 'index'])->name('dashboard.index');
+Route::post('student.dashboard', [StudentController::class, 'store'])->name('dashboard.store');
+
 Route::get('/dashboard', function () {
+    
     return view('student.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 

@@ -311,14 +311,16 @@
             @@@@@@@@@
            
             <div id="modalpop" class="offmodal">
-        <div class="modal-container ">
+        <div class="modal-container mx-5">
       
       <div class="flex justify-end">
          <button type="button" class="closet" data-dismiss="modalpop" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
         </div>
-        <div class="">
-                        <label>Week</label>
-                        <select class="form-control">
+        <div class="mx-5">
+        <form method="post" action="{{ route('dashboard.store') }}">
+         @csrf
+                        <label class="my-2">Week</label>
+                        <select class="formclassy mb-4">
                           <option>week 1</option>
                           <option>week 2</option>
                           <option>week 3</option>
@@ -328,8 +330,17 @@
                           <option>week 7</option>
                           <option>week 8</option>
                         </select>
+        
+                        <label for="start-date" class="ml-5"><i class="fas fa-calendar-alt"></i> Start Date:
+                        </label>
+                        <input type="date" id="start_date" name="start_date" value="{{ $startDate->format('Y-m-d') }}">
+
+                        <label for="end-date"> <i class="fas fa-calendar-alt"></i> End Date:
+                        </label>
+                        <input type="date" id="end_date" name="end_date" value="{{ $endDate->format('Y-m-d') }}">
                         
-                <table class="table table-bordered table-hover m-2">
+                <div class="card-body table-responsive p-0" style="height: 450px;">       
+                <table class="table table-bordered table-head-fixed text-nowrap">
                   <thead>
                     <tr>
                       <th>DAY/DATE</th>
@@ -338,18 +349,77 @@
                     </tr>
                   </thead>
                   <tbody>
+                  @foreach($dates as $date)
+                <tr>
+                    <td>{{ $date->format('l, F j, Y') }}</td>
+                    <td>
+                    <input type="text" name="activities[{{ $date->format('Y-m-d') }}][]" value="{{ $activities[$date->format('Y-m-d')][0]->activity ?? '' }}">
+                        </td>
+                 </tr>
+                  @endforeach
+                 </tbody>
+                 </table>
+                <button type="submit">Save Activities</button>
+                        </form>
+                    <!-- <tr data-widget="expandable-table" aria-expanded="false">
+                      <td> 
+                        <h1 class="text-center mb-4 text-sm">Monday</h1>
+                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
+                      </td>
+                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
+                    </tr>
                     <tr data-widget="expandable-table" aria-expanded="false">
-                      <td>11-7-2014</td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                      <td> 
+                        <h1 class="text-center mb-4 text-sm">Monday</h1>
+                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
+                      </td>
+                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
+                    </tr>
+                    <tr data-widget="expandable-table" aria-expanded="false">
+                      <td> 
+                        <h1 class="text-center mb-4 text-sm">Monday</h1>
+                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
+                      </td>
+                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
+                    </tr>
+                    <tr data-widget="expandable-table" aria-expanded="false">
+                      <td> 
+                        <h1 class="text-center mb-4 text-sm">Monday</h1>
+                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
+                      </td>
+                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
+                    </tr>
+                    <tr data-widget="expandable-table" aria-expanded="false">
+                      <td> 
+                        <h1 class="text-center mb-4 text-sm">Monday</h1>
+                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
+                      </td>
+                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
+                    </tr>
+                    <tr data-widget="expandable-table" aria-expanded="false">
+                      <td> 
+                        <h1 class="text-center mb-4 text-sm">Monday</h1>
+                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
+                      </td>
+                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
+                    </tr>
+                    <tr data-widget="expandable-table" aria-expanded="false">
+                      <td> 
+                        <h1 class="text-center mb-4 text-sm">Monday</h1>
+                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
+                      </td>
+                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
                     </tr>
                     
                   </tbody>
-                </table>
-
+                </table> -->
+                        </div>
+       
         </div>
         
             <center>
-            <input type="submit" class="btn btn-primary" value="Submit">
+            <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Submit">
+            <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Main Job">
             </center>
        
    </div>

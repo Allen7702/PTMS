@@ -333,11 +333,9 @@
         
                         <label for="start-date" class="ml-5"><i class="fas fa-calendar-alt"></i> Start Date:
                         </label>
-                        <input type="date" id="start_date" name="start_date" value="{{ $startDate->format('Y-m-d') }}">
+                        <input type="date" id="start_date" name="start_date" onchange="setWeekDates()">
 
-                        <label for="end-date"> <i class="fas fa-calendar-alt"></i> End Date:
-                        </label>
-                        <input type="date" id="end_date" name="end_date" value="{{ $endDate->format('Y-m-d') }}">
+                       
                         
                 <div class="card-body table-responsive p-0" style="height: 450px;">       
                 <table class="table table-bordered table-head-fixed text-nowrap">
@@ -349,78 +347,32 @@
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach($dates as $date)
-                <tr>
-                    <td>{{ $date->format('l, F j, Y') }}</td>
-                    <td>
-                    <input type="text" name="activities[{{ $date->format('Y-m-d') }}][]" value="{{ $activities[$date->format('Y-m-d')][0]->activity ?? '' }}">
-                        </td>
-                 </tr>
-                  @endforeach
-                 </tbody>
-                 </table>
-                <button type="submit">Save Activities</button>
-                        </form>
-                    <!-- <tr data-widget="expandable-table" aria-expanded="false">
-                      <td> 
-                        <h1 class="text-center mb-4 text-sm">Monday</h1>
-                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
-                      </td>
-                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
-                    </tr>
-                    <tr data-widget="expandable-table" aria-expanded="false">
-                      <td> 
-                        <h1 class="text-center mb-4 text-sm">Monday</h1>
-                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
-                      </td>
-                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
-                    </tr>
-                    <tr data-widget="expandable-table" aria-expanded="false">
-                      <td> 
-                        <h1 class="text-center mb-4 text-sm">Monday</h1>
-                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
-                      </td>
-                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
-                    </tr>
-                    <tr data-widget="expandable-table" aria-expanded="false">
-                      <td> 
-                        <h1 class="text-center mb-4 text-sm">Monday</h1>
-                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
-                      </td>
-                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
-                    </tr>
-                    <tr data-widget="expandable-table" aria-expanded="false">
-                      <td> 
-                        <h1 class="text-center mb-4 text-sm">Monday</h1>
-                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
-                      </td>
-                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
-                    </tr>
-                    <tr data-widget="expandable-table" aria-expanded="false">
-                      <td> 
-                        <h1 class="text-center mb-4 text-sm">Monday</h1>
-                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
-                      </td>
-                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
-                    </tr>
-                    <tr data-widget="expandable-table" aria-expanded="false">
-                      <td> 
-                        <h1 class="text-center mb-4 text-sm">Monday</h1>
-                       <h1 class="text-center mb-2"> 11-7-2014 </h1>
-                      </td>
-                      <td>  <textarea class="form-control"  placeholder="Enter description"></textarea> </td>
-                    </tr>
-                    
+                    <tbody id="activity-table">
+                      @for ($i = 0; $i < 5; $i++)
+                          <tr data-widget="expandable-table" aria-expanded="false">
+                              <td>
+                                <h1 id="day[{{ $i }}]"></h1>
+                                <input class="text-center mb-2" type="hidden" name="activities[{{ $i }}][date]" id="activities[{{ $i }}].date" class="form-control">                              </td>
+                              <td>
+                                  <textarea  placeholder="Enter description" name="activities[{{ $i }}][activity]" id="activities[{{ $i }}].activity" class="form-control"></textarea>
+                              </td>
+                          </tr>
+                      @endfor
                   </tbody>
-                </table> -->
+                 </table>
+               
+                        
+                    
                         </div>
-       
+                        <center>
+                          <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">Save Submission</button>
+                          <input type="submit" id="linkModal" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Save ">
+                          <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Main Job">
+                          </center>
+                        </form>
         </div>
         
-            <center>
-            <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Submit">
-            <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Main Job">
-            </center>
+      
        
    </div>
 </div>
@@ -441,7 +393,7 @@
     </div>
      
    <!--Right section-->
-  <div class="bg-green w-small">
+  <div class=" w-small">
   <div class="flex justify-between px-4">
     <div>
     <a href="#">Send message </a>
@@ -464,6 +416,22 @@
 
 
 
+
+     <script>
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        
+        function setWeekDates() {
+            var startDate = new Date(document.getElementById('start_date').value);
+            for (var i = 0; i < 5; i++) {
+                var dateInput = document.getElementById(`activities[${i}].date`);
+                var dayInput = document.getElementById(`day[${i}]`);
+                var newDate = new Date(startDate);
+                newDate.setDate(newDate.getDate() + i);
+                dateInput.value = newDate.toISOString().slice(0, 10);
+                dayInput.innerHTML = `<h1 class="text-center mb-4 text-sm">${daysOfWeek[newDate.getDay()]} </h1>  <h1 class="text-center mb-2">${dateInput.value} </h1>`;
+            }
+        }
+    </script>
 
 
 <script src="{{asset('js/script.js')}}"></script>

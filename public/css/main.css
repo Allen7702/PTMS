@@ -235,3 +235,11 @@ label {
   }
   
 /*end of pop up form  */
+
+
+/* Login Page */
+.guest-layout-bg{
+    background-image: url('../img/login.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -9,29 +9,23 @@ class StudentController extends Controller
 {
     public function index()
     {
-        $startDate = request('start_date', now()->startOfMonth());
-        $endDate = request('end_date', now()->endOfMonth());
-    
-        $dates = collect();
-        for ($date = $startDate; $date <= $endDate; $date = $date->addDay()) {
-            $dates->push($date);
-        }
-    
-        $activities = Activity::whereIn('date', $dates)
-            ->orderBy('date')
-            ->get()
-            ->groupBy('date');
-    
-        return view('student.dashboard', compact('activities', 'startDate', 'endDate'));
+       $activities =Activity::all();
+        return view('student.dashboard', compact('activities'));
     }
     
     public function store(Request $request)
-    {
-        foreach ($request->activities as $date => $activity) {
-            Activity::updateOrCreate(['date' => $date], ['activity' => $activity]);
-        }
-    
-        return back()->with('success', 'Activities saved successfully.');
+    {    $data = $request->validate([
+        'activities' => 'required|array',
+        'activities.*.date' => 'required|date',
+        'activities.*.activity' => 'required|string',
+    ]);
+
+    foreach ($data['activities'] as $activityData) {
+        Activity::create($activityData);
+    }
+
+    return redirect()->back()->with('success', 'Activities saved successfully.');
+
     }
     
 }

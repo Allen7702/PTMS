@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>PTMS</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -13,24 +13,11 @@
   <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Ionicons -->
-  {{-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> --}}
-  <!-- Tempusdominus Bootstrap 4 -->
-  {{-- <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> --}}
-  <!-- iCheck -->
-  {{-- <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"> --}}
-  <!-- JQVMap -->
-  {{-- <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css"> --}}
-  <!-- Theme style -->
+  
+  <!-- Theme styles -->
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
   <link rel="stylesheet" href="{{asset('css/main.css')}}">
 
-  <!-- overlayScrollbars -->
-  {{-- <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css"> --}}
-  <!-- Daterange picker -->
-  {{-- <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css"> --}}
-  <!-- summernote -->
-  {{-- <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css"> --}}
 
    <!-- Scripts -->
    @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -56,20 +43,7 @@
            <li><a href="#">Home</a></li>
        </ul>
     </div>
-        {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars fa-xl" style="color: #ffffff;"></i>
-      </button>
-  </div>
-  <div class="collapse navbar-collapse bg-green" id="navbarNav">
-      <ul class="navbar-nav">
-          <li class="nav-item">
-              <a href="index3.html" class="nav-link text-white">Home</a>
-          </li>
-          <li class="nav-item">
-              <a href="#" class="nav-link text-white">Contact</a>
-          </li>
-      </ul>
-      </div> --}}
+      
    
 
     <!-- Right navbar links -->
@@ -166,15 +140,18 @@
                 
                 <i class="fa-solid fa-camera fa-xl" style="color: #919eb6;margin-top:8px;margin-right:2px;"></i>
                
-                  <p class="mb-1 text-white">David Greymaax</p>
+                  <p class="mb-1 text-white"> {{ Auth::user()->name }}</p>
                
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item" href="#">
                   <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
+                <form id="logout-form" method='POST' action="{{route('logout')}}" >
+                  @csrf
+                <a class="dropdown-item" id="logout-button" href="{{ route('logout') }}">
                   <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+                  </form>
               </div>
             </li>
     
@@ -191,10 +168,10 @@
     <div class="upper mt-2">
       <span class=" px-3">
      <a href="#">Application </a> 
-      <a href="#">/ Allen A Mgeyekwa (Udicti-Coict)</a></span>
+      <a href="#">/ {{ Auth::user()->name }} (Udicti-Coict)</a></span>
       <div class="item-flex">
        <div > 
-        <button>Edit</button>
+        <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2"><i class="fa-regular fa-pen-to-square"></i>Edit</button>
        </div>
        <div>
         <a href="#">2 Attachments</a>
@@ -211,32 +188,32 @@
       <!--Left section-->
     <div class=" w-large ">
 
-      <div class="relative bg-blue">
+      <div class="relative ">
       
-        <div class="flex justify-end px-4 py-2 ">
-          <p class="mr-4">DRAFT</p>
-          <p class="mr-4">DRAFT</p>
-          <p class="mr-4">DRAFT</p>
-          <p class="mr-4">DRAFT</p>
+        <div class="flex justify-end ">
+          <p class="mr-4 py-2 ">DRAFT</p>
+          <p class="mr-4 py-2 ">SUBMITTED</p>
+          <p class="mr-4 py-2 px-2 bg-gray-300">ACCEPTED</p>
+          <p class="mr-4 py-2 ">REJECTED</p>
         </div>
       </div>
 
-    <div class="bg-gray-300 vh-100 container">
-     fist
-     <div>
+    <div class="bg-gray-300 vh-100 container ">
+     {{-- fist --}}
+     <div class="pt-3 bg-gray-300">
        
-     <div class="col-12 col-sm-6 container">
+     <div class="col-12 col-sm-6 container ">
       <div class="card card-primary card-outline card-outline-tabs">
       <div class="flex justify-between px-4 mt-4">
         <div>
-          <p class="mr-4">Application date</p>
-          <p class="mr-4">Company</p>
-          <p class="mr-4">Confirmation Letter</p>
+          <p class="mr-4 mb-4">Application date</p>
+          <p class="mr-4 mb-2">Company</p>
+          <p class="mr-4 mb-5">Confirmation Letter</p>
         </div>
         <div>
-          <p class="mr-72">|  Diana </p>
-          <p class="mr-4">|  Diana </p>
-          <p class="mr-4">|  Diana </p>
+          <p class="mr-72 mb-4 text-gray-600">|  06/23/2022 </p>
+          <p class="mr-4 mb-2 text-gray-600">|  Udicti-Coict </p>
+          <p class="mr-4 mb-5 text-gray-600">|  <i class="fa-solid fa-download" style="color: #a7aaaf;"></i></p>
         </div>
         </div>
         <div class="card-header p-0 border-bottom-0">
@@ -255,27 +232,26 @@
             </li>
           </ul>
         </div>
-        <div class="card-body">
+        <div class="card-body ">
           <div class="tab-content" id="custom-tabs-four-tabContent">
             <div class="tab-pane fade" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
-             Arrival note      |
+             Arrival note      | <i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
             </div>
             <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
             Supervisor         |  Diana 
           </div> 
             <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-            Final Report        |  icon
+            Final Report        |  <i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
             </div>
-            <div class="tab-pane fade active show" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab" onload="openModal(document.getElementById('modal_1'));">
-              ******
-            <div class="flex justify-between px-4 ">
-        <div>
-          <p class="mr-4">Logbook report Submission</p>
-          <p class="mr-4">Manage all your existing logbooks or add new logbook</p>
-         
+            <div class="tab-pane fade active show" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab" >
+              {{-- ****** --}}
+            <div class="flex justify-between px-4 my-4 ">
+        <div >
+          <p class="mr-4 text-lg">Logbook report Submission</p>
+          <p class="mr-4 text-base text-gray-600">Manage all your existing logbooks or add new logbook</p>
         </div>
         <div>
-          <p class="mr-4"><button type="button"  id="linkModal" class="btn btn-block bg-blue-500 btn-info ">+ Add new submission</button> </p>
+          <p class="mr-4"><button type="submit" id="linkModal" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">+ Add new submission</button></p>
         </div>
         </div>
        <!-- /.card-header -->
@@ -294,21 +270,19 @@
                   <tbody>
                     <tr>
                       <td>1</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                      <td>11-7-2014</td>
+                      <td>Logbook week 1</td>
+                      <td>Nov 18</td>
+                      <td><span class="tag tag-success">Nov 11 - Nov 17</span></td>
+                      <td>Submitted</td>
+                      <td><i class="fa-solid fa-download" style="color: #a7aaaf;"></i></td>
 
                     </tr>
                     </tbody>
                 </table>
               </div>
               <!-- /.card-body -->
-            Logbook Submission  |  icon
-            ********
-          
-            @@@@@@@@@
+            {{-- ******* --}}
+            {{-- @@@@@@@@@ --}}
            
             <div id="modalpop" class="offmodal">
         <div class="modal-container mx-5">
@@ -366,8 +340,8 @@
                         </div>
                         <center>
                           <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">Save Submission</button>
-                          <input type="submit" id="linkModal" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Save ">
-                          <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Main Job">
+                          <input type="submit" id="linkModal" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="cancel">
+                          {{-- <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Main Job"> --}}
                           </center>
                         </form>
         </div>
@@ -376,7 +350,7 @@
        
    </div>
 </div>
-            @@@@@@@@@
+            {{-- @@@@@@@@@ --}}
            
             </div>
           </div>
@@ -385,7 +359,7 @@
       </div>
     </div>
         </div>
-     fist
+     {{-- fist --}}
     </div>
     
      
@@ -394,9 +368,9 @@
      
    <!--Right section-->
   <div class=" w-small">
-  <div class="flex justify-between px-4">
+  <div class="flex justify-between px-4 mt-4 mb-4">
     <div>
-    <a href="#">Send message </a>
+    <a  class="mr-2" href="#">Send message </a>
     <a href="#">Log note </a>
    </div>
     <div>
@@ -408,8 +382,19 @@
 
    <div class="flex items-center justify-center">
     <div class="border-t  border-gray-500 h-1 w-20 mr-2"></div>
-    <div class="text-center   whitespace-no-wrap">CENTER</div>
+    <div class="text-center   whitespace-no-wrap">June 24,2022</div>
     <div class="border-t  border-gray-500 h-1 w-20 ml-2"></div>
+   </div>
+
+   <div class="bg-gray-200 m-2 p-2 border-radius">
+    <div class="flex ml-2">
+      <div>
+      <i class="fa-solid fa-camera fa-xl" style="color: #919eb6;margin-top:8px;margin-right:2px;"></i></div>
+    <div class="ml-2"> <h1 class="text-gray-500"> Note by Allen A Mgeyekwa</h1>  
+      <h1 class="ml-2"> <li>PT Allocation created</li></h1> </div>  
+                 
+       </div>
+
    </div>
 
   </div>
@@ -432,12 +417,23 @@
             }
         }
     </script>
+     <script>
+      $(document).ready(function(){
+     $('#logout-button').click(function(){
+    $('#logout-form').submit();
+      });
+    });
+     </script>
 
 
 <script src="{{asset('js/script.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/demo.js')}}"></script>
 <script src="{{asset('js/pop-up.js')}}"></script>
+<script src="{{asset('js/jquery.js')}}"></script>
+<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+
+
 
 
 

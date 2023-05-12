@@ -16,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth/login');
-});
+// Route::get('/', function () {
+//     return view('auth/login');
+// });
 
-Route::get('student.dashboard', [StudentController::class, 'index'])->name('dashboard.index');
+Route::get('/', [StudentController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard.index');
 Route::post('student.dashboard', [StudentController::class, 'store'])->name('dashboard.store');
+Route::get('/logout', [StudentController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', function () {
     

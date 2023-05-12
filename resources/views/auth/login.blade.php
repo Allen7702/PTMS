@@ -1,5 +1,9 @@
+
 <div class="guest-layout-bg">
 <x-guest-layout class="guest-layout-bg">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+
+    
     <!-- Session Status -->
     {{-- <x-auth-session-status class="mb-4" :status="session('status')" /> --}}
 
@@ -45,5 +49,6 @@
             </x-primary-button>
         </div>
     </form>
+
 </x-guest-layout>
 </div>

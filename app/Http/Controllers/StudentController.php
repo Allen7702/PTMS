@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Activity;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -16,8 +17,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {    $data = $request->validate([
         'activities' => 'required|array',
-        'activities.*.date' => 'required|date',
-        'activities.*.activity' => 'required|string',
+        
     ]);
 
     foreach ($data['activities'] as $activityData) {
@@ -28,4 +28,15 @@ class StudentController extends Controller
 
     }
     
+    public function logout(Request $request)
+    {
+        Auth::logout(); // Perform the sign out
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/'); // Redirect the user to the login page or any other desired page
+    }
+
 }

@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded",function(){
 
     var modalpop = document.getElementById('modalpop');
+    
 
     document.getElementById('linkModal').addEventListener('click',function(){
         modalpop.classList.remove('offmodal');

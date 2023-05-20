@@ -15,14 +15,18 @@ class StudentController extends Controller
     }
     
     public function store(Request $request)
-    {    $data = $request->validate([
-        'activities' => 'required|array',
-        
-    ]);
+    {    
+         $data = $request->all();
 
-    foreach ($data['activities'] as $activityData) {
-        Activity::create($activityData);
-    }
+         for($i = 0; $i < 5; $i++) {
+            if(!empty($data['activities'][$i]['activity'])) {
+                Activity::create([
+                    'user_id' => Auth::id(),
+                    'date' => $data['activities'][$i]['date'],
+                    'activity' => $data['activities'][$i]['activity']
+                ]);
+            }
+        }
 
     return redirect()->back()->with('success', 'Activities saved successfully.');
 

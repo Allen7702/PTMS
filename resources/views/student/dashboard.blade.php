@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
   <link rel="stylesheet" href="{{asset('css/main.css')}}">
 
+  <!-- summernote css -->
+  <link rel="stylesheet" href="{{asset('summernote/summernote-bs4.min.css')}}">
 
    <!-- Scripts -->
    @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -290,7 +292,7 @@
       <div class="flex justify-end">
          <button type="button" class="closet" data-dismiss="modalpop" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
         </div>
-        <div class="mx-5">
+        <div id="step1" class="mx-5">
         <form method="post" action="{{ route('dashboard.store') }}">
          @csrf
                         <label class="my-2">Week</label>
@@ -341,9 +343,33 @@
                         <center>
                           <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">Save Submission</button>
                           <input type="submit" id="linkModal" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="cancel">
+                          <button type="button" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" onclick="nextStep()">Next</button>
                           {{-- <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Main Job"> --}}
                           </center>
                         </form>
+        </div>
+
+        <div id="step2" class="form-container hidden">
+          <h2>Activity Description</h2>
+          <table class="table table-bordered table-head-fixed text-nowrap" style="height: 300px;">
+            <thead>
+              <tr>
+                <th>DESCRIPTION</th> <th>TOOLS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><textarea id="summernote" class="form-control" required></textarea></td>
+                 <td><input type="text" id="tools" class="form-control">
+                  <div id="summernote"><p>Hello Summernote</p></div>
+                </td>
+              </tr>
+              <tbody>
+          </table>
+          <input type="file" id="image" class="form-container">
+            <button type="submit">Submit</button>
+            <button type="button" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" onclick="prevStep()">Back</button>
+
         </div>
         
       
@@ -424,6 +450,12 @@
       });
     });
      </script>
+      <script>
+        $(function () {
+          // Summernote
+          $('#summernote').summernote()
+        })
+      </script>
 
 
 <script src="{{asset('js/script.js')}}"></script>
@@ -433,7 +465,12 @@
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
 
+<!-- JQuery Library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<!-- summernote js -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="{{asset('summernote/summernote-bs4.min.js')}}"></script>
 
 
 

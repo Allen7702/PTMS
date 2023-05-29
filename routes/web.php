@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [StudentController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard.index');
 Route::post('student.dashboard', [StudentController::class, 'store'])->name('dashboard.store');
+Route::post('student.dashboard/weekly', [StudentController::class, 'saveWeeklyActivity'])->name('student.dashboard.saveWeeklyActivity');
+
 Route::get('/logout', [StudentController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', function () {

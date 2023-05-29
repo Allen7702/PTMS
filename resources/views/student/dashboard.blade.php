@@ -293,8 +293,9 @@
          <button type="button" class="closet" data-dismiss="modalpop" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
         </div>
         <div id="step1" class="mx-5">
-        <form method="post" action="{{ route('dashboard.store') }}">
+        <form method="post" action="{{ route('dashboard.store') }}" enctype="multipart/form-data">
          @csrf
+
                         <label class="my-2">Week</label>
                         <select class="formclassy mb-4">
                           <option>week 1</option>
@@ -346,30 +347,36 @@
                           <button type="button" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" onclick="nextStep()">Next</button>
                           {{-- <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Main Job"> --}}
                           </center>
-                        </form>
+                        </form>        
         </div>
 
         <div id="step2" class="form-container hidden">
-          <h2>Activity Description</h2>
-          <table class="table table-bordered table-head-fixed text-nowrap" style="height: 300px;">
-            <thead>
+         
+          <div class=" table-responsive px-5">
+            <h2>Activity Description</h2>
+            <form action="{{ route('dashboard.store') }}" method="POST" enctype="multipart/form-data">
+              @csrf
+
+            <table class="table table-bordered table-head-fixed text-nowrap " style="height: 300px;">
+             <thead>
               <tr>
                 <th>DESCRIPTION</th> <th>TOOLS</th>
               </tr>
-            </thead>
-            <tbody>
+             </thead>
+             <tbody>
               <tr>
-                <td><textarea id="summernote" class="form-control" required></textarea></td>
-                 <td><input type="text" id="tools" class="form-control">
-                  <div id="summernote"><p>Hello Summernote</p></div>
+                <td><textarea id="summernote" name="weekly_description" class="form-control" required></textarea></td>
+                 <td><textarea id="tools" name="tools_used" class="form-control"></textarea>
                 </td>
               </tr>
               <tbody>
-          </table>
-          <input type="file" id="image" class="form-container">
-            <button type="submit">Submit</button>
-            <button type="button" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" onclick="prevStep()">Back</button>
+            </table>
+            <input type="file" id="image" name="image" class="form-control">
 
+           </div>
+            <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">Submit</button>
+            <button type="button" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" onclick="prevStep()">Back</button>
+          </form> 
         </div>
         
       

@@ -270,15 +270,23 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Logbook week 1</td>
-                      <td>Nov 18</td>
-                      <td><span class="tag tag-success">Nov 11 - Nov 17</span></td>
-                      <td>Submitted</td>
-                      <td><i class="fa-solid fa-download" style="color: #a7aaaf;"></i></td>
+                    <tr data-widget="expandable-table" aria-expanded="false">
 
-                    </tr>
+                      @foreach($activities as $activity)
+                      <tr data-widget="expandable-table" aria-expanded="false">
+                      <td>1</td>
+                      <td>{{ $formData['weekNumber'] }}</td>
+                      <td>{{ $formData['lastModifiedDate'] }}</td>
+                          <td>
+                              <h1>{{ $formData['dateRange'] }}</h1>
+                          </td>
+                          <td>
+                              <p>Submitted</p>
+                          </td>
+                          <td><i class="fa-solid fa-download" style="color: #a7aaaf;"></i></td>
+                        </tr>
+                  @endforeach
+                     
                     </tbody>
                 </table>
               </div>
@@ -294,18 +302,18 @@
         </div>
         <div id="step1" class="mx-5">
         <form method="post" action="{{ route('dashboard.store') }}" enctype="multipart/form-data">
-         @csrf
+        @csrf
 
                         <label class="my-2">Week</label>
-                        <select class="formclassy mb-4">
-                          <option>week 1</option>
-                          <option>week 2</option>
-                          <option>week 3</option>
-                          <option>week 4</option>
-                          <option>week 5</option>
-                          <option>week 6</option>
-                          <option>week 7</option>
-                          <option>week 8</option>
+                        <select name="week_number" class="formclassy mb-4">
+                          <option value="1">Week 1</option>
+                          <option value="2">Week 2</option>
+                          <option value="3">Week 3</option>
+                          <option value="4">Week 4</option>
+                          <option value="5">Week 5</option>
+                          <option value="6">Week 6</option>
+                          <option value="7">Week 7</option>
+                          <option value="8">Week 8</option>
                         </select>
         
                         <label for="start-date" class="ml-5"><i class="fas fa-calendar-alt"></i> Start Date:

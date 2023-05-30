@@ -13,6 +13,7 @@ class Activity extends Model
         'user_id',
         'date',
         'activity',
+        'week_number',
         
     ];
     public function user()

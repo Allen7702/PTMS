@@ -6,6 +6,7 @@ use App\Models\WeeklyActivity;
 use Illuminate\Http\Request;
 use App\Models\Activity;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class StudentController extends Controller
 {
@@ -23,6 +24,7 @@ class StudentController extends Controller
             if(!empty($data['activities'][$i]['activity'])) {
                 Activity::create([
                     'user_id' => Auth::id(),
+                    'week_number' => $data['activities'][$i]['week_number'],    
                     'date' => $data['activities'][$i]['date'],
                     'activity' => $data['activities'][$i]['activity']
                 ]);
@@ -52,29 +54,41 @@ class StudentController extends Controller
 
     }
 
-    public function saveWeeklyActivity(Request $request)
+    public function showActivities()
     {
-        $validatedData = $request->validate([
-            'weekly_description' => 'required|string',
-            'tools_used' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+        $user_id = Auth::id();
+        $activities = Activity::where('user_id', $user_id)
+                              ->orderBy('date', 'desc')
+                              ->get();
+                            
+    $formData = [];   
+    $activities = collect();
 
-        $weeklyActivity = new WeeklyActivity();
-        $weeklyActivity->user_id = Auth::id();
-        $weeklyActivity->weekly_description = $validatedData['weekly_description'];
-        $weeklyActivity->tools_used = $validatedData['tools_used'];
+    for ($weekNumber = 1; $weekNumber <= 8; $weekNumber++) {
+    $activitiesForWeek = Activity::where('week_number', $weekNumber)->get();
+    $activities = $activities->concat($activitiesForWeek);
+    }
 
-        // Handling the image upload
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imagePath = $image->store('weekly_images', 'public');
-            $weeklyActivity->image = $imagePath;
-        }
+    // Calculate the start and end dates for the selected week number
+    $startDate = Carbon::now()->startOfWeek()->addWeeks($weekNumber - 1);
+    $endDate = Carbon::now()->startOfWeek()->addWeeks($weekNumber - 1)->endOfWeek();
 
-        $weeklyActivity->save();
+     // Get the last modified date
+    $lastModifiedDate = Activity::max('updated_at');
 
-        return redirect()->back()->with('success', 'Weekly activity saved successfully.');
+     // Format the dates for display
+    $formattedStartDate = Carbon::parse($startDate)->format('M d');
+    $formattedEndDate = Carbon::parse($endDate)->format('M d');
+
+     // Prepare the form data
+    $formData = [
+        'weekNumber' => $weekNumber,
+        'lastModifiedDate' => $lastModifiedDate,
+        'dateRange' => $formattedStartDate . ' - ' . $formattedEndDate,
+        'activities' => $activities,
+    ];
+
+        return view('student.dashboard', compact('activities','formData'));
     }
     
     public function logout(Request $request)

@@ -271,11 +271,13 @@
                   </thead>
                   <tbody>
                     <tr data-widget="expandable-table" aria-expanded="false">
-
+                      
                       @foreach($activities as $activity)
                       <tr data-widget="expandable-table" aria-expanded="false">
                       <td>1</td>
-                      <td>{{ $formData['weekNumber'] }}</td>
+                      
+
+                      <td>Log book week {{ $activity->week_number }}</td>
                       <td>{{ $formData['lastModifiedDate'] }}</td>
                           <td>
                               <h1>{{ $formData['dateRange'] }}</h1>

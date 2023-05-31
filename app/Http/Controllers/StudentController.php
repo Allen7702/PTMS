@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\WeeklyActivity;
 use Illuminate\Http\Request;
-use App\Models\Activity;
+
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -13,18 +14,20 @@ class StudentController extends Controller
     public function index()
     {
        $activities =Activity::all();
-        return view('student.dashboard', compact('activities'));
+       $weekNumbers = Activity::distinct('week_number')->pluck('week_number');
+
+        return view('student.dashboard', compact('activities','weekNumbers'));
     }
     
     public function store(Request $request)
     {    
         $data = $request->all();
-
+        $weekNumber = $request->input('week_number');
         for($i = 0; $i < 5; $i++) {
             if(!empty($data['activities'][$i]['activity'])) {
                 Activity::create([
                     'user_id' => Auth::id(),
-                    'week_number' => $data['activities'][$i]['week_number'],    
+                    'week_number' => $weekNumber,    
                     'date' => $data['activities'][$i]['date'],
                     'activity' => $data['activities'][$i]['activity']
                 ]);
@@ -93,6 +96,7 @@ class StudentController extends Controller
     
     public function logout(Request $request)
     {
+        
         Auth::logout(); // Perform the sign out
 
         $request->session()->invalidate();

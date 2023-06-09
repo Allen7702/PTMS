@@ -111,13 +111,11 @@
                       @foreach($activities as $activity)
                       <tr data-widget="expandable-table" aria-expanded="false">
                       <td>1</td>
-                      
+                      <td> Log book week {{ $activity->week_number }}</td>
+                      <td>{{ $activity->updated_at }}</td>
+                      <td>{{ $activity->start_date . ' - ' . $activity->end_date }}</td>
 
-                      <td>Log book week {{ $activity->week_number }}</td>
-                      <td>{{ $formData['lastModifiedDate'] }}</td>
-                          <td>
-                              <h1>{{ $formData['dateRange'] }}</h1>
-                          </td>
+                     
                           <td>
                               <p>Submitted</p>
                           </td>
@@ -139,7 +137,7 @@
          <button type="button" class="closet" data-dismiss="modalpop" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
         </div>
         <div id="step1" class="mx-5">
-        <form method="post" action="{{ route('dashboard.store') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('dashboard.storeDailyActivities') }}" enctype="multipart/form-data">
         @csrf
 
                         <label class="my-2">Week</label>
@@ -189,7 +187,7 @@
                         </div>
                         <center>
                           <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">Save Submission</button>
-                          <input type="submit" id="linkModal" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="cancel">
+                          <button type="button" id="linkModal" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" >Cancel</button>
                           <button type="button" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" onclick="nextStep()">Next</button>
                           {{-- <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Main Job"> --}}
                           </center>
@@ -200,7 +198,7 @@
          
           <div class=" table-responsive px-5">
             <h2>Activity Description</h2>
-            <form action="{{ route('dashboard.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('dashboard.storeWeeklyActivity') }}" method="POST" enctype="multipart/form-data">
               @csrf
 
             <table class="table table-bordered table-head-fixed text-nowrap " style="height: 300px;">

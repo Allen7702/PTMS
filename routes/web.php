@@ -16,14 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('auth/login');
-// });
-
 Route::get('/', [StudentController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard.index');
-Route::post('student.dashboard', [StudentController::class, 'store'])->name('dashboard.store');
-Route::post('student.dashboard/weekly', [StudentController::class, 'saveWeeklyActivity'])->name('student.dashboard.saveWeeklyActivity');
-Route::get('/', [StudentController::class, 'showActivities'])->middleware(['auth', 'verified'])->name('dashboard.index');;
+
+// Route for daily activities
+Route::post('student.dashboard/daily', [StudentController::class, 'storeDailyActivities'])->name('dashboard.storeDailyActivities');
+
+// Route for weekly activity
+Route::post('student.dashboard/weekly', [StudentController::class, 'storeWeeklyActivity'])->name('dashboard.storeWeeklyActivity');
+
+Route::get('/', [StudentController::class, 'showActivities'])->middleware(['auth', 'verified'])->name('dashboard.index');
+
 
 Route::get('/logout', [StudentController::class, 'logout'])->name('logout');
 

@@ -24,7 +24,7 @@ Route::post('student.dashboard/daily', [StudentController::class, 'storeDailyAct
 // Route for weekly activity
 Route::post('student.dashboard/weekly', [StudentController::class, 'storeWeeklyActivity'])->name('dashboard.storeWeeklyActivity');
 
-Route::get('/', [StudentController::class, 'showActivities'])->middleware(['auth', 'verified'])->name('dashboard.index');
+Route::get('/', [StudentController::class, 'showLogbook'])->middleware(['auth', 'verified'])->name('dashboard.index');
 
 
 Route::get('/logout', [StudentController::class, 'logout'])->name('logout');

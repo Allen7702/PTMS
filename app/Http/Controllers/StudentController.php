@@ -63,7 +63,7 @@ public function storeWeeklyActivity(Request $request)
 }
 
 
-    public function showActivities()
+    public function showLogbook()
 {
     $activities = Activity::select('week_number', DB::raw('MAX(updated_at) as last_modified'), DB::raw('MIN(date) as start_date'), DB::raw('MAX(date) as end_date'))
                     ->groupBy('week_number')
@@ -72,6 +72,32 @@ public function storeWeeklyActivity(Request $request)
     return view('student.dashboard', compact('activities'));
 }
     
+
+public function updateActivity(Request $request, $id)
+{
+    $activity = Activity::find($id);
+    $activity->activity = $request->activity;
+    $activity->save();
+
+    return redirect()->back()->with('success', 'Activity updated successfully.');
+}
+
+public function updateWeeklyActivity(Request $request, $id)
+{
+    $weeklyActivity = WeeklyActivity::find($id);
+    $weeklyActivity->weekly_description = $request->weekly_description;
+    $weeklyActivity->tools_used = $request->tools_used;
+
+    // Handle image update if image is present
+    if($request->hasFile('image')) {
+        // Add your code here to handle image update
+    }
+
+    $weeklyActivity->save();
+
+    return redirect()->back()->with('success', 'Weekly Activity updated successfully.');
+}
+
     public function logout(Request $request)
     {
         

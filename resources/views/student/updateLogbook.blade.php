@@ -1,5 +1,5 @@
 
-
+@if(isset($activity->id))
 <h1>Week {{ $activities[0]->week_number }}</h1>
 
 @foreach($activities as $activity)
@@ -43,4 +43,5 @@
 
     <button type="submit">Update</button>
 </form>
+@endif
 

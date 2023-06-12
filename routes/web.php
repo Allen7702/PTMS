@@ -25,8 +25,8 @@ Route::post('student.dashboard/daily', [StudentController::class, 'storeDailyAct
 Route::post('student.dashboard/weekly', [StudentController::class, 'storeWeeklyActivity'])->name('dashboard.storeWeeklyActivity');
 Route::get('/', [StudentController::class, 'showLogbook'])->middleware(['auth', 'verified'])->name('dashboard.index');
 Route::get('student.dashboard/activities/{week_number}', [StudentController::class, 'showActivities'])->name('student.dashboard.showActivities');
-Route::patch('student.dashboard/activities/{id}', [StudentController::class, 'updateActivity'])->name('student.dashboard.updateActivity');
-Route::patch('student.dashboard/weekly/{id}', [StudentController::class, 'updateWeeklyActivity'])->name('student.dashboard.updateWeeklyActivity');
+Route::post('student.dashboard/activities/{id}', [StudentController::class, 'updateActivity'])->name('student.dashboard.updateActivity');
+Route::post('student.dashboard/weekly/{id}', [StudentController::class, 'updateWeeklyActivity'])->name('student.dashboard.updateWeeklyActivity');
 
 
 Route::get('/logout', [StudentController::class, 'logout'])->name('logout');

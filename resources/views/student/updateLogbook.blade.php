@@ -3,7 +3,7 @@
 <h1>Week {{ $activities[0]->week_number }}</h1>
 
 @foreach($activities as $activity)
-<form method="post" action="{{ route('student.dashboard.updateActivity', $activity->id) }}">
+<form action="{{ route('student.dashboard.updateActivity', ['id' => $activity->id]) }}" method="POST">
     @csrf
     @method('patch')
 

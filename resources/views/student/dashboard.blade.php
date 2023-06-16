@@ -119,7 +119,9 @@
                           <td>
                               <p>Submitted</p>
                           </td>
-                          <td><i class="fa-solid fa-download" style="color: #a7aaaf;"></i></td>
+                          <td><i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
+                            <button type="submit" id="linkModal1">View</button>
+                          </td>
                         </tr>
                   @endforeach
                      

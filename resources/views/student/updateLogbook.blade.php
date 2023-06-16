@@ -1,5 +1,12 @@
 
+<div id="modalpop1" class="offmodal1">
+    <div class="modal-container mx-5">
 @if(isset($activity->id))
+
+    <div class="flex justify-end">
+        <button type="button" class="closet" data-dismiss="modalpop" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
+       </div>
+       <div  class="mx-5">
 <h1>Week {{ $activities[0]->week_number }}</h1>
 
 @foreach($activities as $activity)
@@ -43,5 +50,12 @@
 
     <button type="submit">Update</button>
 </form>
+      
+</div>
+@else
+<p>nothing here bud</p>
+
 @endif
+</div>
+</div>
 

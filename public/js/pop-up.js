@@ -1,12 +1,16 @@
 document.addEventListener("DOMContentLoaded",function(){
 
     var modalpop = document.getElementById('modalpop');
-    
+    var modalpop1 = document.getElementById('modalpop1');
 
     document.getElementById('linkModal').addEventListener('click',function(){
         modalpop.classList.remove('offmodal');
         modalpop.classList.add('onmodal');
+    },false)
 
+    document.getElementById('linkModal1').addEventListener('click',function(){
+        modalpop1.classList.remove('offmodal1');
+        modalpop1.classList.add('onmodal1');
     },false)
 
     document.querySelector('.closet').addEventListener('click',function(){

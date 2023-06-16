@@ -132,6 +132,15 @@ width:65%;
     display: block;
     transition: display 1s ease-in-out;
 }
+.offmodal1{
+    display: none;
+    transition: display 1s ease-in-out;
+}
+
+.onmodal1{
+    display: block;
+    transition: display 1s ease-in-out;
+}
 
 #modalpop::before{
     content: "";

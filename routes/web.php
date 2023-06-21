@@ -42,4 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/org', function () {
+    return view('organization.index');
+});
+
 require __DIR__.'/auth.php';

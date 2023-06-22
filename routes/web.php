@@ -43,7 +43,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/org', function () {
-    return view('organization.layout');
+    return view('organization.pages.dashboard');
+});
+Route::get('/app', function () {
+    return view('organization.pages.application');
 });
 
 require __DIR__.'/auth.php';

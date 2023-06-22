@@ -18,6 +18,11 @@ class StudentController extends Controller
 
         return view('student.dashboard', compact('activities'));
     }
+    public function pdfview()
+    {
+    //    $activities =Activity::all();
+         return view('student.loogbookpdf');
+    }
     
     public function storeDailyActivities(Request $request)
 {    

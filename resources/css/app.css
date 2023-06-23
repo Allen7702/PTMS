@@ -8,3 +8,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.bgcolor{
+    background-color: #1E1E1E !important;
+}

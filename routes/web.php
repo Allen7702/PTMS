@@ -44,9 +44,12 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/org', function () {
     return view('organization.pages.dashboard');
-});
+})->name('organization.dashboard');
 Route::get('/app', function () {
     return view('organization.pages.application');
-});
+})->name('organization.pages.application');
+Route::get('/tables', function () {
+    return view('organization.pages.tables');
+})->name('organization.pages.tables');
 
 require __DIR__.'/auth.php';

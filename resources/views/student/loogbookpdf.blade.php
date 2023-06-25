@@ -36,23 +36,23 @@
      </thead>
      <tbody>
        <tr>
-         <td class="border border-black  px-4 py-2">Monday</td>
+         <th class="border border-black  px-4 py-2">Monday</th>
          <td class="border border-black px-4 py-2"></td>
        </tr>
        <tr>
-         <td class="border border-black px-4 py-2">Tuesday</td>
+         <th class="border border-black px-4 py-2">Tuesday</th>
          <td class="border border-black px-4 py-2"></td>
        </tr>
        <tr>
-         <td class="border border-black px-4 py-2">Wednesday</td>
+         <th class="border border-black px-4 py-2">Wednesday</th>
          <td class="border border-black px-4 py-2"></td>
        </tr>
        <tr>
-         <td class="border border-black px-4 py-2">Thursday</td>
+         <th class="border border-black px-4 py-2">Thursday</th>
          <td class="border border-black px-4 py-2"></td>
        </tr>
        <tr>
-         <td class="border border-black px-4 py-2">Friday</td>
+         <th class="border border-black px-4 py-2">Friday</th>
          <td class="border border-black px-4 py-2"></td>
        </tr>
      </tbody>

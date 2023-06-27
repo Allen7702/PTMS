@@ -42,17 +42,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/org', function () {
-    return view('organization.pages.dashboard');
-})->name('organization.dashboard');
-Route::get('/app', function () {
-    return view('organization.pages.application');
-})->name('organization.pages.application');
-Route::get('/tables', function () {
-    return view('organization.pages.tables');
-})->name('organization.pages.tables');
-Route::get('/signin', function () {
-    return view('organization.pages.sign-in');
-})->name('organization.pages.signin');
+
+// For Organization Dashboard
+Route::get('/org',[OrganizationController::class, 'dashboard'])->name('organization.dashboard');
+Route::get('/app', [OrganizationController::class, 'application'])->name('organization.pages.application');
+Route::get('/tables', [OrganizationController::class, 'table'])->name('organization.pages.tables');
+Route::get('/signin', [OrganizationController::class, 'signin'])->name('organization.pages.signin');
 
 require __DIR__.'/auth.php';

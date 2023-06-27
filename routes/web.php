@@ -51,5 +51,8 @@ Route::get('/app', function () {
 Route::get('/tables', function () {
     return view('organization.pages.tables');
 })->name('organization.pages.tables');
+Route::get('/signin', function () {
+    return view('organization.pages.sign-in');
+})->name('organization.pages.signin');
 
 require __DIR__.'/auth.php';

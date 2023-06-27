@@ -102,20 +102,7 @@
 </div>
 </div>
 
-
-
-      <!-- cards -->
-    <div class="w-full px-6 py-6 mx-auto">
-        <!-- row 1 -->
-        <div class="flex flex-wrap -mx-3">
-          <!-- card1 -->
-         
-          <!-- card2 -->
-        
-          <!-- card3 -->
-          
-          <!-- card4 -->
-        
+     
        <!-- cards row 2 -->
 <div class="flex flex-wrap mt-6 -mx-3">
   <!-- About University Card -->
@@ -136,7 +123,7 @@
           </div>
           <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
             <div class="h-full rounded-xl">
-              <img class="relative z-20 w-full pt-6" src="./assets/img/university.jpg" alt="University" />
+              <img class="relative z-20 w-full pt-6 rounded-lg" src="{{asset('img/login.png')}}" alt="University" />
             </div>
           </div>
         </div>
@@ -165,7 +152,7 @@
 
 
 <!-- cards row 3 -->
-<div class="flex flex-wrap mt-6 -mx-3">
+<div class="flex flex-wrap mt-6 mx-5">
   <!-- Calendar Card -->
   <div class="w-full px-3 mb-6 lg:mb-0 lg:w-full lg:flex-none">
     <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
@@ -176,12 +163,13 @@
               <p class="pt-2 mb-1 font-semibold">University Calendar</p>
               <h5 class="font-bold">Upcoming Events and Deadlines</h5>
               <div class="mb-12">
-                <!-- Embed your calendar here -->
-                <iframe src="https://calendar.google.com/calendar/embed?src=781c29de505a642ed4ba0807b39abbcde5f96e4f46e5101959e548730faac356%40group.calendar.google.com&ctz=Africa%2FNairobi" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>              </div>
-              <a class="mt-auto mb-0 text-sm font-semibold leading-normal group text-slate-500" href="javascript:;">
+                
+                <iframe src="https://calendar.google.com/calendar/embed?src=781c29de505a642ed4ba0807b39abbcde5f96e4f46e5101959e548730faac356%40group.calendar.google.com&ctz=Africa%2FNairobi" style="border: 0" width="1550" height="800" frameborder="0" scrolling="no"></iframe>              </div>
+                <a class="mt-auto mb-0 text-sm font-semibold leading-normal group text-slate-500" href="javascript:;">
                 Full Calendar
                 <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
-              </a>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -196,6 +184,5 @@
 
 
 
-    </div>
-
+ 
 @endsection

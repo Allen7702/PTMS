@@ -4,7 +4,9 @@
 
 
 <div class="max-w-lg mx-auto p-4 md:p-8 lg:p-10 md:m-10">
+    <h2 className="mr-4 text-sm">Apply for Practical Training Students</h2>
     <div class="bg-white shadow-lg rounded-2xl p-6">
+        <p>Please fill the criteria for student(s) that you can offer Practical Training to</p>
         <form>
           
                 <div class="flex flex-wrap -mx-3 mb-6">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 
@@ -48,5 +49,6 @@ Route::get('/org',[OrganizationController::class, 'dashboard'])->name('organizat
 Route::get('/app', [OrganizationController::class, 'application'])->name('organization.pages.application');
 Route::get('/tables', [OrganizationController::class, 'table'])->name('organization.pages.tables');
 Route::get('/signin', [OrganizationController::class, 'signin'])->name('organization.pages.signin');
+Route::post('/applicationstore', [OrganizationController::class, 'ApplicationStore']);
 
 require __DIR__.'/auth.php';

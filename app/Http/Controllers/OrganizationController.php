@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\application;
 use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
@@ -11,7 +12,22 @@ return view('organization.pages.dashboard');
 }
 
 public function application(){
+
     return view('organization.pages.application');
+    }
+
+public function ApplicationStore(Request $request)
+    {
+        $application = new application;
+        $application->department = $request->department;
+        $application->course = $request->course;
+        $application->year = $request->year;
+        $application->college = $request->college;
+        $application->number_students = $request->number_students;
+
+        $application->save();
+    
+        return redirect('/org');
     }
 
 public function table(){

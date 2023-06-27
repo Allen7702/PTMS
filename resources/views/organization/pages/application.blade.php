@@ -7,23 +7,24 @@
     <h2 className="mr-4 text-sm">Apply for Practical Training Students</h2>
     <div class="bg-white shadow-lg rounded-2xl p-6">
         <p>Please fill the criteria for student(s) that you can offer Practical Training to</p>
-        <form>
-          
+        <form action="/applicationstore" method="POST">
+            @csrf
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="text-gray-700 font-semibold">Select Department</label>
-                        <select class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 px-4 py-2">
-                            <option>Department 1</option>
-                            <option>Department 2</option>
+                        <select name="department" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 px-4 py-2">
+                            <option value="COICT">COICT </option>
+                            <option value="COET">COET</option>
                             <!-- Add more options as needed -->
                         </select>
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <label class="text-gray-700 font-semibold">Select Course</label>
-                        <select class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 px-4 py-2">
-                            <option>Course 1</option>
-                            <option>Course 2</option>
-                            <!-- Add more options as needed -->
+                        <select id="course" name="course" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 px-4 py-2">
+                            <option value="Computer Science" >Computer Science</option>
+                            <option value="Computer Science and Engeneering" >Computer Science and Engeneering</option>
+                            <option value="Telecommunication and electronics" >Telecommunication and electronics</option>
+                            <option value="Electronic Engineering" >Electronic Engineering</option>
                         </select>
                      </div>
                 </div>
@@ -31,17 +32,18 @@
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="text-gray-700 font-semibold">Select College*</label>
-                        <select class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 px-4 py-2">
-                            <option>College 1</option>
-                            <option>College 2</option>
-                            <!-- Add more options as needed -->
+                        <select id="college" name="college" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 px-4 py-2">
+                            <option value="College of Information and Communication Technologies (COICT)">College of Information and Communication Technologies (COICT)</option>
+                            <option value="College of Engineering and Technology (CoET)">College of Engineering and Technology (CoET)</option>
+                            <option value="College of Engineering and Technology (CoET)">College of Humanities (CoHU)</option>
                         </select>
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <label class="text-gray-700 font-semibold">Select Year</label>
-                        <select class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 px-4 py-2">
-                            <option>Year 1</option>
-                            <option>Year 2</option>
+                        <select id="year" name="year" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 px-4 py-2">
+                            <option value="1">Year 1</option>
+                            <option value="2">Year 2</option>
+                            <option value="3">Year 3</option>
                             <!-- Add more options as needed -->
                         </select>
                      </div>

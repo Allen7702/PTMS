@@ -128,9 +128,9 @@
                     </tbody>
                 </table>
               </div>
-              @if($activity)
+              @isset($activity)
               @include('student.updateLogbook', ['activity' => $activity])
-               @endif
+              @endisset
               <!-- /.card-body -->
             {{-- ******* --}}
             {{-- @@@@@@@@@ --}}

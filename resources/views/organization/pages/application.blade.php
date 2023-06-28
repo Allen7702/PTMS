@@ -51,7 +51,7 @@
 
                 <div class="col-span-1">
                     <label class="text-gray-700 font-semibold">Number of Students</label>
-                    <input type="number"  class="appearance-none block w-1/2 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    <input type="number" id="number_students" name="number_students"  class="appearance-none block w-1/2 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 </div>
             
             <div class="flex justify-start mt-6">

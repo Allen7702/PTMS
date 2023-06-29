@@ -125,14 +125,7 @@
 
                         <label class="my-2">Week</label>
                         <select name="week_number" class="formclassy mb-4">
-                          <option value="1">Week 1</option>
-                          <option value="2">Week 2</option>
-                          <option value="3">Week 3</option>
-                          <option value="4">Week 4</option>
-                          <option value="5">Week 5</option>
-                          <option value="6">Week 6</option>
-                          <option value="7">Week 7</option>
-                          <option value="8">Week 8</option>
+                         
                         </select>
         
                         <label for="start-date" class="ml-5"><i class="fas fa-calendar-alt"></i> Start Date:

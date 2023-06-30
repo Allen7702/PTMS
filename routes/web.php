@@ -3,7 +3,7 @@
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
-
+use App\Http\Controllers\SupervisorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,5 +51,8 @@ Route::get('/app', [OrganizationController::class, 'application'])->name('organi
 Route::get('/tables', [OrganizationController::class, 'table'])->name('organization.pages.tables');
 Route::get('/signin', [OrganizationController::class, 'signin'])->name('organization.pages.signin');
 Route::post('/applicationstore', [OrganizationController::class, 'ApplicationStore']);
+
+//For Supervisor Dashboard
+Route::get('/supervisor', [SupervisorController::class, 'index']);
 
 require __DIR__.'/auth.php';

@@ -26,19 +26,32 @@
       <!--Left section-->
     <div class=" w-large ">
 
+      <div class="relative ">
+      
+        <div class="flex justify-end ">
+          <p class="mr-4 py-2 ">DRAFT</p>
+          <p class="mr-4 py-2 ">SUBMITTED</p>
+          <p class="mr-4 py-2 px-2 bg-gray-300">ACCEPTED</p>
+          <p class="mr-4 py-2 ">REJECTED</p>
+        </div>
+      </div>
 
     <div class="bg-gray-300 vh-100 container ">
      {{-- fist --}}
      <div class="pt-3 bg-gray-300">
        
      <div class="col-12 col-sm-6 container ">
+      <div class="card card-primary card-outline card-outline-tabs">
+      <div class="flex justify-between px-4 mt-4">
+       
+        </div>
         <div class="card-header p-0 border-bottom-0">
           <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="false">Arrival note</a>
+              <a class="nav-link" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="false">Arrival notes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Assigned students</a>
+              <a class="nav-link" id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Assigned Students</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill" href="#custom-tabs-four-messages" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Final Reports</a>
@@ -49,26 +62,16 @@
           </ul>
         </div>
         <div class="card-body ">
-          <div class="tab-content" id="custom-tabs-four-tabContent">
-            <div class="tab-pane fade" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
-             Arrival note      | <i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
-            </div>
-            <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-            Supervisor         |  Diana 
-          </div> 
-            <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-            Final Report        |  <i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
-            </div>
             <div class="tab-pane fade active show" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab" >
               {{-- ****** --}}
             <div class="flex justify-between px-4 my-4 ">
         <div >
           <p class="mr-4 text-lg">Logbook report Submission</p>
-          <p class="mr-4 text-base text-gray-600">Manage all your existing logbooks or add new logbook</p>
+          <p class="mr-4 text-base text-gray-600">Manage logbook submission from assigned students</p>
         </div>
-        <div>
+        <!-- <div>
           <p class="mr-4"><button type="submit" id="linkModal" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">+ Add new submission</button></p>
-        </div>
+        </div> -->
         </div>
        <!-- /.card-header -->
        <div class="card-body table-responsive p-0">
@@ -106,9 +109,9 @@
                     </tbody>
                 </table>
               </div>
-              @if($activity)
+              @isset($activity)
               @include('student.updateLogbook', ['activity' => $activity])
-               @endif
+              @endisset
               <!-- /.card-body -->
             {{-- ******* --}}
             {{-- @@@@@@@@@ --}}
@@ -120,12 +123,19 @@
          <button type="button" class="closet" data-dismiss="modalpop" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
         </div>
         <div id="step1" class="mx-5">
-        <form method="post" action="{{ route('dashboard.storeDailyActivities') }}" enctype="multipart/form-data">
+        <!-- <form method="post" action="{{ route('dashboard.storeDailyActivities') }}" enctype="multipart/form-data">
         @csrf
 
                         <label class="my-2">Week</label>
                         <select name="week_number" class="formclassy mb-4">
-                         
+                          <option value="1">Week 1</option>
+                          <option value="2">Week 2</option>
+                          <option value="3">Week 3</option>
+                          <option value="4">Week 4</option>
+                          <option value="5">Week 5</option>
+                          <option value="6">Week 6</option>
+                          <option value="7">Week 7</option>
+                          <option value="8">Week 8</option>
                         </select>
         
                         <label for="start-date" class="ml-5"><i class="fas fa-calendar-alt"></i> Start Date:
@@ -168,13 +178,14 @@
                           {{-- <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Main Job"> --}}
                           </center>
                         </form>        
+       -->
         </div>
 
         <div id="step2" class="form-container hidden">
          
           <div class=" table-responsive px-5">
             <h2>Activity Description</h2>
-            <form action="{{ route('dashboard.storeWeeklyActivity') }}" method="POST" enctype="multipart/form-data">
+            <!-- <form action="{{ route('dashboard.storeWeeklyActivity') }}" method="POST" enctype="multipart/form-data">
               @csrf
 
             <table class="table table-bordered table-head-fixed text-nowrap " style="height: 300px;">
@@ -196,7 +207,7 @@
            </div>
             <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">Submit</button>
             <button type="button" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" onclick="prevStep()">Back</button>
-          </form> 
+          </form>  -->
         </div>
         
       

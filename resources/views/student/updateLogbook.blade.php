@@ -28,24 +28,24 @@
 </form>
 @endforeach
 
-<form method="post" action="{{ route('student.dashboard.updateWeeklyActivity', $weeklyActivity->id) }}">
+<form method="post" action="{{ route('student.dashboard.updateActivity', $activity->id) }}">
     @csrf
     @method('patch')
 
     <div>
         <label>Weekly Description</label>
-        <textarea name="weekly_description">{{ $weeklyActivity->weekly_description }}</textarea>
+        <textarea name="weekly_description">{{ $activity->weekly_description }}</textarea>
     </div>
 
     <div>
         <label>Tools Used</label>
-        <textarea name="tools_used">{{ $weeklyActivity->tools_used }}</textarea>
+        <textarea name="tools_used">{{ $activity->tools_used }}</textarea>
     </div>
 
     <div>
         <label>Image</label>
         <input type="file" name="image">
-        <img src="/storage/{{ $weeklyActivity->image }}">
+        <img src="/storage/{{ $activity->image }}">
     </div>
 
     <button type="submit">Update</button>

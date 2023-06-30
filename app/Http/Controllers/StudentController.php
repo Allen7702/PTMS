@@ -38,33 +38,21 @@ class StudentController extends Controller
             ]);
         }
     }
+$weeklyActivity = new WeeklyActivity();
+$weeklyActivity->user_id = Auth::id();
+$weeklyActivity->weekly_description = $request->input('weekly_description');
+$weeklyActivity->tools_used = $request->input('tools_used');
 
-    return redirect()->back()->with('success', 'Daily activities saved successfully.');
+// Handling the image upload
+if ($request->hasFile('image')) {
+    $image = $request->file('image');
+    $imagePath = $image->store('img', 'public');
+    $weeklyActivity->image = $imagePath;
 }
 
-public function storeWeeklyActivity(Request $request)
-{
-    $validatedData = $request->validate([
-        'weekly_description' => 'required|string',
-        'tools_used' => 'required|string',
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
+$weeklyActivity->save();
 
-    $weeklyActivity = new WeeklyActivity();
-    $weeklyActivity->user_id = Auth::id();
-    $weeklyActivity->weekly_description = $validatedData['weekly_description'];
-    $weeklyActivity->tools_used = $validatedData['tools_used'];
-
-    // Handling the image upload
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $imagePath = $image->store('weekly_images', 'public');
-        $weeklyActivity->image = $imagePath;
-    }
-
-    $weeklyActivity->save();
-
-    return redirect()->back()->with('success', 'Weekly activity saved successfully.');
+    return redirect()->back()->with('success', 'Daily activities saved successfully.');
 }
 
 
@@ -78,30 +66,15 @@ public function storeWeeklyActivity(Request $request)
 }
     
 
-public function updateActivity(Request $request, $id)
-{
-    $activity = Activity::find($id);
-    $activity->activity = $request->activity;
-    $activity->save();
 
-    return redirect()->back()->with('success', 'Activity updated successfully.');
+public function viewActivityDetails($week)
+{
+    $activities = Activity::where('week_number', $week)->get();
+    $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())->first(); // assuming there is a user_id in the WeeklyActivity table
+
+    return view('student.activity-details', compact('activities', 'weeklyActivity'));
 }
 
-public function updateWeeklyActivity(Request $request, $id)
-{
-    $weeklyActivity = WeeklyActivity::find($id);
-    $weeklyActivity->weekly_description = $request->weekly_description;
-    $weeklyActivity->tools_used = $request->tools_used;
-
-    // Handle image update if image is present
-    if($request->hasFile('image')) {
-        // Add your code here to handle image update
-    }
-
-    $weeklyActivity->save();
-
-    return redirect()->back()->with('success', 'Weekly Activity updated successfully.');
-}
 
     public function logout(Request $request)
     {

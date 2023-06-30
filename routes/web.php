@@ -28,6 +28,7 @@ Route::get('/', [StudentController::class, 'showLogbook'])->middleware(['auth', 
 Route::get('student.dashboard/activities/{week_number}', [StudentController::class, 'showActivities'])->name('student.dashboard.showActivities');
 Route::patch('student.dashboard/activities/{id}', [StudentController::class, 'updateActivity'])->name('student.dashboard.updateActivity');
 Route::patch('student.dashboard/weekly/{id}', [StudentController::class, 'updateWeeklyActivity'])->name('student.dashboard.updateWeeklyActivity');
+Route::get('/activity-details/{week}',[StudentController::class, 'viewActivityDetails']);
 
 
 Route::get('/logout', [StudentController::class, 'logout'])->name('logout');

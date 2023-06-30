@@ -120,7 +120,9 @@
                               <p>Submitted</p>
                           </td>
                           <td><i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
-                            <button type="submit" id="linkModal1">View</button>
+                            <button type="submit" id="linkModal1" >View</button>
+                            <a href="{{ url('/activity-details/'.$activity->week_number) }}" class="btn btn-info">View2</a>
+
                           </td>
                         </tr>
                   @endforeach
@@ -135,103 +137,96 @@
             {{-- ******* --}}
             {{-- @@@@@@@@@ --}}
            
-            <div id="modalpop" class="offmodal">
-        <div class="modal-container mx-5">
-      
-      <div class="flex justify-end">
-         <button type="button" class="closet" data-dismiss="modalpop" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
-        </div>
-        <div id="step1" class="mx-5">
-        <form method="post" action="{{ route('dashboard.storeDailyActivities') }}" enctype="multipart/form-data">
-        @csrf
-
-                        <label class="my-2">Week</label>
-                        <select name="week_number" class="formclassy mb-4">
-                          <option value="1">Week 1</option>
-                          <option value="2">Week 2</option>
-                          <option value="3">Week 3</option>
-                          <option value="4">Week 4</option>
-                          <option value="5">Week 5</option>
-                          <option value="6">Week 6</option>
-                          <option value="7">Week 7</option>
-                          <option value="8">Week 8</option>
-                        </select>
-        
-                        <label for="start-date" class="ml-5"><i class="fas fa-calendar-alt"></i> Start Date:
-                        </label>
-                        <input type="date" id="start_date" name="start_date" onchange="setWeekDates()">
-
-                       
-                        
-                <div class="card-body table-responsive p-0" style="height: 450px;">       
-                <table class="table table-bordered table-head-fixed text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>DAY/DATE</th>
-                      <th>ACTIVITY</th>
-                      
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tbody id="activity-table">
-                      @for ($i = 0; $i < 5; $i++)
-                          <tr data-widget="expandable-table" aria-expanded="false">
-                              <td>
-                                <h1 id="day[{{ $i }}]"></h1>
-                                <input class="text-center mb-2" type="hidden" name="activities[{{ $i }}][date]" id="activities[{{ $i }}].date" class="form-control">                              </td>
-                              <td>
-                                  <textarea  placeholder="Enter description" name="activities[{{ $i }}][activity]" id="activities[{{ $i }}].activity" class="form-control"></textarea>
-                              </td>
-                          </tr>
-                      @endfor
-                  </tbody>
-                 </table>
+            <div id="modalpop" class="offmodal mx-5 bg-green-500">
+              <div class="modal-container table-responsive px-10 ">
+                <div class="flex justify-end">
+                  <button type="button" class="closet" data-dismiss="modalpop" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+            
                
-                        
+                  <form method="post" action="{{ route('dashboard.storeDailyActivities') }}" enctype="multipart/form-data">
+                    @csrf
+            
+                    <div class="form-group">
+                      <label  class="text-lg" for="week-number">Week</label>
+                      <select name="week_number" id="week-number" class="formclassy mb-4">
+                        @for ($week = 1; $week <= 8; $week++)
+                          <option value="{{ $week }}">Week {{ $week }}</option>
+                        @endfor
+                      </select>
+                      <label for="start-date" class="ml-5"><i class="fas fa-calendar-alt"></i> Start Date:
+                      </label>
+                      <input type="date" id="start_date" name="start_date" onchange="setWeekDates()">
+  
+                    </div>
+            
+                   
                     
-                        </div>
-                        <center>
-                          <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">Save Submission</button>
-                          <button type="button" id="linkModal" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" >Cancel</button>
-                          <button type="button" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" onclick="nextStep()">Next</button>
-                          {{-- <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Main Job"> --}}
-                          </center>
-                        </form>        
-        </div>
-
-        <div id="step2" class="form-container hidden">
-         
-          <div class=" table-responsive px-5">
-            <h2>Activity Description</h2>
-            <form action="{{ route('dashboard.storeWeeklyActivity') }}" method="POST" enctype="multipart/form-data">
-              @csrf
-
-            <table class="table table-bordered table-head-fixed text-nowrap " style="height: 300px;">
-             <thead>
-              <tr>
-                <th>DESCRIPTION</th> <th>TOOLS</th>
-              </tr>
-             </thead>
-             <tbody>
-              <tr>
-                <td><textarea id="summernote" name="weekly_description" class="form-control" required></textarea></td>
-                 <td><textarea id="tools" name="tools_used" class="form-control"></textarea>
-                </td>
-              </tr>
-              <tbody>
-            </table>
-            <input type="file" id="image" name="image" class="form-control">
-
-           </div>
-            <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">Submit</button>
-            <button type="button" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" onclick="prevStep()">Back</button>
-          </form> 
-        </div>
-        
-      
-       
-   </div>
-</div>
+            
+                    <div class="card-body table-responsive p-0" style="height: 450px;">
+                      <table class="table table-bordered table-head-fixed text-nowrap">
+                        <thead>
+                          <tr>
+                            <th>DAY/DATE</th>
+                            <th>ACTIVITY</th>
+                          </tr>
+                        </thead>
+                        <tbody id="activity-table">
+                          @for ($i = 0; $i < 5; $i++)
+                          <tr data-widget="expandable-table" aria-expanded="false">
+                            <td>
+                              <h1 id="day[{{ $i }}]"></h1>
+                              <input class="text-center mb-2" type="hidden" name="activities[{{ $i }}][date]" id="activities[{{ $i }}].date" class="form-control">      
+                            </td>
+                            <td>
+                                <textarea  placeholder="Enter description" name="activities[{{ $i }}][activity]" id="activities[{{ $i }}].activity" class="form-control"></textarea>
+                            </td>
+                        </tr>
+                          @endfor
+                        </tbody>
+                      </table>
+                    </div>
+            
+                    
+                      <h1 class="text-lg mb-2">Activity Description</h1>
+            
+                      <table class="table table-bordered table-head-fixed text-nowrap" style="height: 300px;">
+                        <thead>
+                          <tr>
+                            <th>DESCRIPTION</th>
+                            <th>TOOLS</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <textarea id="summernote" name="weekly_description" class="form-control" required></textarea>
+                            </td>
+                            <td>
+                              <textarea id="tools" name="tools_used" class="form-control"></textarea>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+            
+                      <div class="form-group">
+                        <input type="file" id="image" name="image" class="form-control">
+                      </div>
+                    
+            
+                    <div class="form-group">
+                      <center>
+                      <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">Submit</button>
+                      <button type="button" id="linkModal" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" >Cancel</button>
+                      </center>
+                    </div>
+                  </form>
+               
+              </div>
+            </div>
+            
             {{-- @@@@@@@@@ --}}
            
             </div>

@@ -136,7 +136,7 @@
                                         </button>
                                     </form>
                                 </div>
-                                <a href="{{ url('/activity-details/'.$activity->week_number) }}" class="btn btn-info mr-2">
+                                <a href="{{ url('/download-pdf/'.$activity->week_number) }}" class="btn btn-info mr-2">
                                   <i class="fa-solid fa-download" style="color: #f0f2f6;"></i>
                               </a>
                                

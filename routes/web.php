@@ -30,6 +30,7 @@ Route::get('/activity-details/{week}',[StudentController::class, 'viewActivityDe
 Route::get('student/activities/{week}/edit',[StudentController::class, 'editActivities'])->name('student.editActivities');
 Route::post('student/activities/{week}', [StudentController::class, 'updateActivities'])->name('student.updateActivities');
 Route::delete('/student/deleteLogbookWeek/{week}', [StudentController::class, 'deleteLogbookWeek'])->name('student.deleteLogbookWeek');
+Route::get('/download-pdf/{week}',[StudentController::class, 'downloadActivityDetails']);
 
 
 

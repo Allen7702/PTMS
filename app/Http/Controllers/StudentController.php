@@ -23,23 +23,7 @@ class StudentController extends Controller
     public function pdfview()
     {
     //    $activities =Activity::all();
-     // Create a new Dompdf instance
-    //  $dompdf = new Dompdf();
-
-    //  // Load the HTML content or view you want to convert to PDF
-    //  $html = view('student.loogbookpdf')->render();
  
-    //  // Load the HTML into Dompdf
-    //  $dompdf->loadHtml($html);
- 
-    //  // Set the paper size and orientation
-    //  $dompdf->setPaper('A4', 'portrait');
- 
-    //  // Render the HTML as PDF
-    //  $dompdf->render();
- 
-    //  // Output the PDF to the browser for download
-    //  $dompdf->stream('document.pdf', ['Attachment' => true]);
          return view('student.loogbookpdf');
     }
     
@@ -92,6 +76,24 @@ public function viewActivityDetails($week)
     $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())->first(); // assuming there is a user_id in the WeeklyActivity table
 
     return view('student.activity-details', compact('activities', 'weeklyActivity'));
+}
+public function downloadActivityDetails($week)
+{
+    $activities = Activity::where('week_number', $week)->get();
+    $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())->first(); // assuming there is a user_id in the WeeklyActivity table
+    //Create a new Dompdf instance
+     $dompdf = new Dompdf();
+     // Load the HTML content or view you want to convert to PDF
+     $html = view('student.downloadpdf', compact('activities', 'weeklyActivity'))->render();
+     // Load the HTML into Dompdf
+     $dompdf->loadHtml($html);
+     // Set the paper size and orientation
+     $dompdf->setPaper('A4', 'portrait');
+     // Render the HTML as PDF
+     $dompdf->render();
+     // Output the PDF to the browser for download
+     $dompdf->stream('document.pdf', ['Attachment' => true]);
+   
 }
 
 public function editActivities($week)

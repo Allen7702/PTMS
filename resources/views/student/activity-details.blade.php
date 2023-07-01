@@ -1,6 +1,20 @@
 @extends('layouts.navbar')
 
 @section('content')
+<div class="flex items-center justify-center mx-auto">
+  <div class="mb-2 text-center">
+    <h3 class="text-lg font-bold mb-2">UNIVERSITY OF DAR ES SALAAM</h3>
+    <h3 class="text-lg font-bold mb-2">COLLEGE OF INFORMATION AND COMMUNICATION TECHNOLOGIES</h3>
+    <h3 class="text-lg font-bold mb-2">DEPARTMENT OF ………………………………………………………….</h3>
+    <h3 class="text-lg font-bold mb-2">PRACTICAL TRAINING LOG - BOOK</h3>
+  </div>
+
+</div>
+
+<div class="flex items-center justify-between  w-2/3 mx-auto">
+  <p class="mb-2">STUDENTS NAME: ……………………… REG. NO: …………………………………</p>
+  <p class="mb-2">COMPANY/INSTITUTION: ………………………………………………………………</p>
+</div>
 <table class="w-2/3 mx-auto md:m-16 border border-black mb-4 table-auto border-collapse border">
     <thead>
       <tr>
@@ -12,8 +26,8 @@
         </td>
       </tr>
       <tr>
-        <th class="border border-black px-4 py-2">DAY / DATE</th>
-        <th class="border border-black px-4 py-2">ACTIVITY</th>
+        <th class="border border-black px-4 py-2 text-center">DAY / DATE</th>
+        <th class="border border-black px-4 py-2 text-center">ACTIVITY</th>
       </tr>
     </thead>
     <tbody>
@@ -39,6 +53,7 @@
           <td class="border border-black px-4 py-2">{{ $weeklyActivity->tools_used }}</td>
         </tr>
       </table>
+      
       <div class="w-2/3 mx-auto mt-4">
       <h2 class="text-lg font-bold">Image</h2>
         @if($weeklyActivity->image)

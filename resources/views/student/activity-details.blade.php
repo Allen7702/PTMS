@@ -1,14 +1,14 @@
 @extends('layouts.navbar')
 
 @section('content')
-<table class="w-full border border-black mb-4 table-auto border-collapse border">
+<table class="w-2/3 mx-auto md:m-16 border border-black mb-4 table-auto border-collapse border">
     <thead>
       <tr>
         <td class="border border-black px-4 py-2">
           WEEK NO: {{ $activities[0]->week_number }}
         </td>
-        <td class="border border-black px-4 py-2">
-        FROM: {{ $activities->first()->date }} TO: {{ $activities->last()->date }}
+        <td class="border border-black px-4 py-2 text-center">
+        FROM: &nbsp;&nbsp;{{ $activities->first()->date }}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TO: &nbsp;&nbsp;{{ $activities->last()->date }}
         </td>
       </tr>
       <tr>
@@ -27,9 +27,9 @@
   </table>
   @if($weeklyActivity)
   
-    <h3 class="text-lg font-bold mb-2">Details Of the Main Job of the Week</h3>
+    <h3 class="text-lg font-bold w-2/3 mx-auto">Details Of the Main Job of the Week</h3>
     <div class="operation mb-4">
-      <table class="w-full border border-black">
+      <table class="w-2/3 mx-auto border border-black">
         <tr>
           <th class="border border-black px-4 py-2">Operation</th>
           <th class="border border-black px-4 py-2">Machinery/Tools Used</th>
@@ -38,31 +38,17 @@
           <td class="border border-black px-4 py-2 w-3/4">{{ $weeklyActivity->weekly_description }}</td>
           <td class="border border-black px-4 py-2">{{ $weeklyActivity->tools_used }}</td>
         </tr>
-        <tr>
-          <td class="flex border border-black px-4 py-2">Comments from Industrial Supervisor</td>
-          <td class="border border-black px-4 py-2"></td>
-        </tr>
-        <tr>
-          <td class="border border-black px-4 py-2 w-3/4">Name: …………………………………………………</td>
-          <td>Signature: ………………</td>
-        </tr>
       </table>
-    </div>
-  @endif
-  
-    @if($weeklyActivity)
-        <h2>Weekly Activity Description</h2>
-        <p>{{ $weeklyActivity->weekly_description }}</p>
-
-        <h2>Tools Used</h2>
-        <p>{{ $weeklyActivity->tools_used }}</p>
-
-        <h2>Image</h2>
+      <div class="w-2/3 mx-auto mt-4">
+      <h2 class="text-lg font-bold">Image</h2>
         @if($weeklyActivity->image)
-            <img src="{{ asset('storage/'.$weeklyActivity->image) }}" alt="Weekly Activity Image" style="width: 100%; height: auto;">
+            <img src="{{ asset('img/'.$weeklyActivity->image) }}" alt="Weekly Activity Image" style="width: 100%; height: auto;">
         @else
             <p>No image provided.</p>
         @endif
-    @endif
+      </div>
+    </div>
+  @endif
+  
 </div>
 @endsection

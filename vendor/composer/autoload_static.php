@@ -171,6 +171,7 @@ class ComposerStaticInit2590ceb9d539363f93d995afba8cbdf3
         ),
         'A' => 
         array (
+            'App\\Mail\\' => 9,
             'App\\' => 4,
         ),
     );
@@ -517,6 +518,10 @@ class ComposerStaticInit2590ceb9d539363f93d995afba8cbdf3
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'App\\Mail\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/Mail',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -563,6 +568,8 @@ class ComposerStaticInit2590ceb9d539363f93d995afba8cbdf3
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
+        'App\\Mail\\notification' => __DIR__ . '/../..' . '/app/Mail/notification.php',
+        'App\\Mail\\reminderNotification' => __DIR__ . '/../..' . '/app/Mail/reminderNotification.php',
         'App\\Models\\Activity' => __DIR__ . '/../..' . '/app/Models/Activity.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\WeeklyActivity' => __DIR__ . '/../..' . '/app/Models/WeeklyActivity.php',

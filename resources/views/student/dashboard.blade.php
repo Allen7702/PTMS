@@ -120,17 +120,28 @@
                               <p>Submitted</p>
                           </td>
                           <td>
-                            <a href="{{ url('/activity-details/'.$activity->week_number) }}" class="btn btn-info">View2</a>
-                            <a href="{{ route('student.editActivities', $activity->week_number) }}" class="btn btn-secondary">Edit</a>
-                            <form method="post" action="{{ route('student.deleteLogbookWeek', $activities[0]->week_number) }}">
-                              @csrf
-                              @method('DELETE')
-                              <button type="submit" class="btn btn-danger">Delete This Logbook Week</button>
-                          </form>
-                          
-                            <i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
-
-                          </td>
+                            <div class="d-flex align-items-center">
+                                <a href="{{ url('/activity-details/'.$activity->week_number) }}" class="btn btn-info mr-2">
+                                    <i class="fa fa-eye"></i> 
+                                </a>
+                                <a href="{{ route('student.editActivities', $activity->week_number) }}" class="btn btn-secondary mr-2">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <div class="mr-2">
+                                    <form method="post" action="{{ route('student.deleteLogbookWeek', $activities[0]->week_number) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <a href="{{ url('/activity-details/'.$activity->week_number) }}" class="btn btn-info mr-2">
+                                  <i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
+                              </a>
+                               
+                            </div>
+                        </td>
                         </tr>
                   @endforeach
                      

@@ -146,10 +146,21 @@ public function updateActivities(Request $request, $week)
 
 public function deleteLogbookWeek($week)
 {
-    $activities = Activity::where('week_number', $week)->delete();
-    $weeklyActivity = WeeklyActivity::where('week_number', $week)->delete();
+    // Get all activities for the specified week
+    $activities = Activity::where('week_number', $week)->get();
 
-    return redirect()->route('student.dashboard')->with('status', 'Logbook week deleted successfully');
+    foreach ($activities as $activity) {
+        // Get the WeeklyActivity associated with the activity and delete it
+        if ($activity->weeklyActivity) {
+            $activity->weeklyActivity->delete();
+        }
+    }
+
+    // Delete the activities for the specified week
+    Activity::where('week_number', $week)->delete();
+
+    // Redirect back with a success message
+    return back()->with('success', 'Logbook week deleted successfully');
 }
 
 

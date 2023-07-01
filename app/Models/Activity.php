@@ -20,4 +20,9 @@ class Activity extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function weeklyActivity()
+{
+    return $this->belongsTo(WeeklyActivity::class);
+}
+
 }

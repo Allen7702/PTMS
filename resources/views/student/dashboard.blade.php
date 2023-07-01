@@ -119,9 +119,16 @@
                           <td>
                               <p>Submitted</p>
                           </td>
-                          <td><i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
-                            <button type="submit" id="linkModal1" >View</button>
+                          <td>
                             <a href="{{ url('/activity-details/'.$activity->week_number) }}" class="btn btn-info">View2</a>
+                            <a href="{{ route('student.editActivities', $activity->week_number) }}" class="btn btn-secondary">Edit</a>
+                            <form method="post" action="{{ route('student.deleteLogbookWeek', $activities[0]->week_number) }}">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-danger">Delete This Logbook Week</button>
+                          </form>
+                          
+                            <i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
 
                           </td>
                         </tr>

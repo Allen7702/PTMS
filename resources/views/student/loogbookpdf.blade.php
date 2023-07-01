@@ -17,7 +17,7 @@
      <p class="mb-2">COMPANY/INSTITUTION: ………………………………………………………………</p>
    </div>
 
-   <table class="w-full border border-black mb-4">
+   <table class="w-full border border-black mb-4 table-auto border-collapse border">
      <thead>
        <tr>
          <td class="border border-black px-4 py-2">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Activity;
 use App\Models\WeeklyActivity;
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -18,9 +19,27 @@ class StudentController extends Controller
 
         return view('student.dashboard', compact('activities'));
     }
+
     public function pdfview()
     {
     //    $activities =Activity::all();
+     // Create a new Dompdf instance
+    //  $dompdf = new Dompdf();
+
+    //  // Load the HTML content or view you want to convert to PDF
+    //  $html = view('student.loogbookpdf')->render();
+ 
+    //  // Load the HTML into Dompdf
+    //  $dompdf->loadHtml($html);
+ 
+    //  // Set the paper size and orientation
+    //  $dompdf->setPaper('A4', 'portrait');
+ 
+    //  // Render the HTML as PDF
+    //  $dompdf->render();
+ 
+    //  // Output the PDF to the browser for download
+    //  $dompdf->stream('document.pdf', ['Attachment' => true]);
          return view('student.loogbookpdf');
     }
     
@@ -73,6 +92,64 @@ public function viewActivityDetails($week)
     $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())->first(); // assuming there is a user_id in the WeeklyActivity table
 
     return view('student.activity-details', compact('activities', 'weeklyActivity'));
+}
+
+public function editActivities($week)
+{
+    $activities = Activity::where('week_number', $week)
+        ->orderBy('date')
+        ->get();
+
+        $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())->first();
+
+    return view('student.editActivities', compact('activities', 'weeklyActivity'));
+}
+
+public function updateActivities(Request $request, $week)
+{
+    $data = $request->all();
+
+    // Loop over the activities data in the request
+    for($i = 0; $i < 5; $i++) {
+        if(!empty($data['activities'][$i]['activity']) && isset($data['activities'][$i]['date'])) {
+            // Find the activity and update it
+            $activity = Activity::where('week_number', $week)
+                ->whereDate('date', $data['activities'][$i]['date'])
+                ->first();
+
+            if($activity) {
+                $activity->update([
+                    'activity' => $data['activities'][$i]['activity']
+                ]);
+            }
+        }
+    }
+
+    // Validate the data
+    $validatedData = $request->validate([
+        'weekly_description' => 'required|string',
+        'tools_used' => 'required|string',
+    ]);
+
+    // Find the WeeklyActivity and update it
+    $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())->first();
+    
+    if($weeklyActivity) {
+        $weeklyActivity->update($validatedData);
+    }
+    
+    // Assuming you want to redirect back to the edit page
+    return redirect()->route('student.editActivities', ['week' => $week])
+                     ->with('success', 'Activities updated successfully');
+}
+
+
+public function deleteLogbookWeek($week)
+{
+    $activities = Activity::where('week_number', $week)->delete();
+    $weeklyActivity = WeeklyActivity::where('week_number', $week)->delete();
+
+    return redirect()->route('student.dashboard')->with('status', 'Logbook week deleted successfully');
 }
 
 

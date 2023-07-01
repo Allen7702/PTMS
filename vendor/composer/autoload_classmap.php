@@ -34,6 +34,8 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
     'App\\Http\\Requests\\ProfileUpdateRequest' => $baseDir . '/app/Http/Requests/ProfileUpdateRequest.php',
+    'App\\Mail\\notification' => $baseDir . '/app/Mail/notification.php',
+    'App\\Mail\\reminderNotification' => $baseDir . '/app/Mail/reminderNotification.php',
     'App\\Models\\Activity' => $baseDir . '/app/Models/Activity.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\WeeklyActivity' => $baseDir . '/app/Models/WeeklyActivity.php',

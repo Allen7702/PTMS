@@ -28,12 +28,12 @@
 
       <div class="relative ">
       
-        <div class="flex justify-end ">
+        <!-- <div class="flex justify-end ">
           <p class="mr-4 py-2 ">DRAFT</p>
           <p class="mr-4 py-2 ">SUBMITTED</p>
           <p class="mr-4 py-2 px-2 bg-gray-300">ACCEPTED</p>
           <p class="mr-4 py-2 ">REJECTED</p>
-        </div>
+        </div> -->
       </div>
 
     <div class="bg-gray-300 vh-100 container ">
@@ -123,62 +123,7 @@
          <button type="button" class="closet" data-dismiss="modalpop" aria-label="Close"><span aria-hidden="true">&times;</span></button>  
         </div>
         <div id="step1" class="mx-5">
-        <!-- <form method="post" action="{{ route('dashboard.storeDailyActivities') }}" enctype="multipart/form-data">
-        @csrf
-
-                        <label class="my-2">Week</label>
-                        <select name="week_number" class="formclassy mb-4">
-                          <option value="1">Week 1</option>
-                          <option value="2">Week 2</option>
-                          <option value="3">Week 3</option>
-                          <option value="4">Week 4</option>
-                          <option value="5">Week 5</option>
-                          <option value="6">Week 6</option>
-                          <option value="7">Week 7</option>
-                          <option value="8">Week 8</option>
-                        </select>
-        
-                        <label for="start-date" class="ml-5"><i class="fas fa-calendar-alt"></i> Start Date:
-                        </label>
-                        <input type="date" id="start_date" name="start_date" onchange="setWeekDates()">
-
-                       
-                        
-                <div class="card-body table-responsive p-0" style="height: 450px;">       
-                <table class="table table-bordered table-head-fixed text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>DAY/DATE</th>
-                      <th>ACTIVITY</th>
-                      
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tbody id="activity-table">
-                      @for ($i = 0; $i < 5; $i++)
-                          <tr data-widget="expandable-table" aria-expanded="false">
-                              <td>
-                                <h1 id="day[{{ $i }}]"></h1>
-                                <input class="text-center mb-2" type="hidden" name="activities[{{ $i }}][date]" id="activities[{{ $i }}].date" class="form-control">                              </td>
-                              <td>
-                                  <textarea  placeholder="Enter description" name="activities[{{ $i }}][activity]" id="activities[{{ $i }}].activity" class="form-control"></textarea>
-                              </td>
-                          </tr>
-                      @endfor
-                  </tbody>
-                 </table>
-               
-                        
-                    
-                        </div>
-                        <center>
-                          <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2">Save Submission</button>
-                          <button type="button" id="linkModal" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" >Cancel</button>
-                          <button type="button" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" onclick="nextStep()">Next</button>
-                          {{-- <input type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2" value="Main Job"> --}}
-                          </center>
-                        </form>        
-       -->
+       
         </div>
 
         <div id="step2" class="form-container hidden">

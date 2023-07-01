@@ -121,7 +121,7 @@
                           </td>
                           <td>
                             <div class="d-flex align-items-center">
-                                <a href="{{ url('/activity-details/'.$activity->week_number) }}" class="btn btn-info mr-2">
+                                <a href="{{ url('/activity-details/'.$activity->week_number) }}" class="  btn btn-info mr-2">
                                     <i class="fa fa-eye"></i> 
                                 </a>
                                 <a href="{{ route('student.editActivities', $activity->week_number) }}" class="btn btn-secondary mr-2">
@@ -131,13 +131,13 @@
                                     <form method="post" action="{{ route('student.deleteLogbookWeek', $activities[0]->week_number) }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">
+                                        <button type="submit" class="btn btn-danger bg-red-500">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>
                                 </div>
                                 <a href="{{ url('/activity-details/'.$activity->week_number) }}" class="btn btn-info mr-2">
-                                  <i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
+                                  <i class="fa-solid fa-download" style="color: #f0f2f6;"></i>
                               </a>
                                
                             </div>

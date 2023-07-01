@@ -62,7 +62,7 @@
             <div>
             <p class="mb-0 font-sans text-sm font-semibold leading-normal">Available Training Opportunities</p>
             <h5 class="mb-0 font-bold">
-            200
+            100
             <span class="text-sm leading-normal font-weight-bolder text-lime-500">+15%</span>
             </h5>
             </div>
@@ -138,7 +138,7 @@
         <span class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-gray-900 to-slate-800 opacity-80"></span>
         <div class="relative z-10 flex flex-col flex-auto h-full p-4">
           <h5 class="pt-2 mb-6 font-bold text-white">Upcoming Events</h5>
-          <p class="text-white">Join us for our next event: Tech Conference 2023. Don't miss the chance to expand your knowledge and network with professionals!</p>
+          <p class="text-white">CALL FOR PARTICIPATIONS; THE DAR ES SALAAM METHODOLOGY SCHOOL: SOURCES AND METHODS ON SLAVERY AND POST-SLAVERY IN EAST AFRICA!</p>
           <a class="mt-auto mb-0 text-sm font-semibold leading-normal text-white group" href="javascript:;">
             Learn More
             <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>

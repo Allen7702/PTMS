@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Mail\Address;
+use Illuminate\Mail\Mailables\Address;
 
 class notification extends Mailable
 {
@@ -29,7 +29,7 @@ class notification extends Mailable
     {
         return new Envelope(
             from: new Address('johnsonfredrick577@gmail.com', 'Johnson Fredrick'),
-            to: new Address('mgeyekwaallen@gmail.com', 'allen'),
+           
             subject: 'Notification',
         );
     }

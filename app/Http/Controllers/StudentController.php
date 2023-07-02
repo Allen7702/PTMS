@@ -22,9 +22,7 @@ class StudentController extends Controller
 
     public function pdfview()
     {
-    //    $activities =Activity::all();
- 
-         return view('student.loogbookpdf');
+        return view('student.loogbookpdf');
     }
     
     public function storeDailyActivities(Request $request)
@@ -43,14 +41,17 @@ class StudentController extends Controller
     }
 $weeklyActivity = new WeeklyActivity();
 $weeklyActivity->user_id = Auth::id();
+$weeklyActivity->week_number = $request->input('week_number');
 $weeklyActivity->weekly_description = $request->input('weekly_description');
 $weeklyActivity->tools_used = $request->input('tools_used');
 
-// Handling the image upload
+
 if ($request->hasFile('image')) {
     $image = $request->file('image');
-    $imagePath = $image->store('img', 'public');
-    $weeklyActivity->image = $imagePath;
+    $name = time().'.'.$image->getClientOriginalName();
+    $destinationPath = public_path('/img');
+    $image->move($destinationPath, $name);
+    $weeklyActivity->image = $name;
 }
 
 $weeklyActivity->save();
@@ -73,26 +74,26 @@ $weeklyActivity->save();
 public function viewActivityDetails($week)
 {
     $activities = Activity::where('week_number', $week)->get();
-    $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())->first(); // assuming there is a user_id in the WeeklyActivity table
+    $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())
+        ->where('week_number', $week)
+        ->first();
 
     return view('student.activity-details', compact('activities', 'weeklyActivity'));
 }
+
 public function downloadActivityDetails($week)
 {
     $activities = Activity::where('week_number', $week)->get();
-    $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())->first(); // assuming there is a user_id in the WeeklyActivity table
+    $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())
+    ->where('week_number', $week)
+    ->first();
     //Create a new Dompdf instance
-     $dompdf = new Dompdf();
-     // Load the HTML content or view you want to convert to PDF
-     $html = view('student.downloadpdf', compact('activities', 'weeklyActivity'))->render();
-     // Load the HTML into Dompdf
-     $dompdf->loadHtml($html);
-     // Set the paper size and orientation
-     $dompdf->setPaper('A4', 'portrait');
-     // Render the HTML as PDF
-     $dompdf->render();
-     // Output the PDF to the browser for download
-     $dompdf->stream('document.pdf', ['Attachment' => true]);
+    $dompdf = new Dompdf();
+    $html = view('student.downloadpdf', compact('activities', 'weeklyActivity'))->render();
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->render();
+    $dompdf->stream('document.pdf', ['Attachment' => true]);
    
 }
 
@@ -102,7 +103,9 @@ public function editActivities($week)
         ->orderBy('date')
         ->get();
 
-        $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())->first();
+        $weeklyActivity = WeeklyActivity::where('user_id', Auth::id())
+        ->where('week_number', $week)
+        ->first();
 
     return view('student.editActivities', compact('activities', 'weeklyActivity'));
 }

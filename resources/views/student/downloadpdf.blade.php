@@ -62,7 +62,7 @@
         border: 1px solid #000;
         padding: 8px;
         font-size: 12px;
-        width: 70%;
+        width: 85%;
     }
     
     .image-container {
@@ -85,7 +85,7 @@
     <div class="sub-header">PRACTICAL TRAINING LOG - BOOK</div>
     
     <div class="info-row">
-        <p class="info-label">STUDENTS NAME: ……………………… REG. NO: …………………………………</p>
+        <p class="info-label">STUDENTS NAME:{{ Auth::user()->name }} REG. NO: …………………………………</p>
         <p class="info-label">COMPANY/INSTITUTION: ………………………………………………………………</p>
     </div>
 
@@ -93,7 +93,7 @@
         <thead>
             <tr>
                 <th>WEEK NO: {{ $activities[0]->week_number }}</th>
-                <th>FROM: {{ $activities->first()->date }}<br>TO: {{ $activities->last()->date }}</th>
+                <th>FROM: &nbsp;&nbsp;{{ $activities->first()->date }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TO:&nbsp;&nbsp; {{ $activities->last()->date }}</th>
             </tr>
             <tr>
                 <th>DAY / DATE</th>

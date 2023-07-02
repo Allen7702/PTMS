@@ -12,7 +12,7 @@
 </div>
 
 <div class="flex items-center justify-between  w-2/3 mx-auto">
-  <p class="mb-2">STUDENTS NAME: ……………………… REG. NO: …………………………………</p>
+  <p class="mb-2">STUDENTS NAME: {{ Auth::user()->name }} REG. NO: …………………………………</p>
   <p class="mb-2">COMPANY/INSTITUTION: ………………………………………………………………</p>
 </div>
 <table class="w-2/3 mx-auto md:m-16 border border-black mb-4 table-auto border-collapse border">

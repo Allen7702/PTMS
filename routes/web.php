@@ -4,6 +4,7 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SupervisorController;
+use App\Http\Controllers\CoordinatorController;
 use App\Mail\notification;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
@@ -60,6 +61,9 @@ Route::post('/applicationstore', [OrganizationController::class, 'ApplicationSto
 
 //For Supervisor Dashboard
 Route::get('/supervisor', [SupervisorController::class, 'index']);
+
+//For Coordinator Dashboard
+Route::get('/coordinator', [CoordinatorController::class, 'index']);
 
 //For the email notification service
 Route::get('/mail', function() {

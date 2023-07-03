@@ -89,6 +89,7 @@
                         <th>Action</th>
                       </tr>
                     </thead>
+
                     <tbody>
                       @foreach ($activities as $index => $activity)
                       <tr data-widget="expandable-table" aria-expanded="false">
@@ -105,6 +106,7 @@
                       </tr>
                       @endforeach
                     </tbody>
+
                   </table>
                   @endforeach
 

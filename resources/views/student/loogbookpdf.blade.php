@@ -86,7 +86,6 @@
 
 
    <div class="diagram">
-     <h3 class="text-lg font-bold mb-2">Detailed Diagram of the Main Job</h3>
      <div class=" border border-black w-800px h-400px">
        <img src="https://via.placeholder.com/800x400" alt="">
      </div>

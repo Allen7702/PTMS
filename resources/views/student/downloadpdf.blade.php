@@ -81,12 +81,12 @@
 <div class="container">
     <div class="logo">UNIVERSITY OF DAR ES SALAAM</div>
     <div class="header">COLLEGE OF INFORMATION AND COMMUNICATION TECHNOLOGIES</div>
-    <div class="sub-header">DEPARTMENT OF ………………………………………………………….</div>
+    <div class="sub-header">DEPARTMENT OF {{ Auth::user()->department }} .</div>
     <div class="sub-header">PRACTICAL TRAINING LOG - BOOK</div>
     
     <div class="info-row">
-        <p class="info-label">STUDENTS NAME:{{ Auth::user()->name }} REG. NO: …………………………………</p>
-        <p class="info-label">COMPANY/INSTITUTION: ………………………………………………………………</p>
+        <p class="info-label">STUDENTS NAME:{{ Auth::user()->name }} REG. NO: {{ Auth::user()->reg_no }} </p>
+        <p class="info-label">COMPANY/INSTITUTION: UDICTI</p>
     </div>
 
     <table class="table">
@@ -133,7 +133,7 @@
     </table>
 
     <div class="image-container">
-        <h2 class="sub-header">Image</h2>
+        <h3 class="text-lg font-bold mb-2">Detailed Diagram of the Main Job</h3>
         @if($weeklyActivity->image)
         <img src="{{ asset('img/'.$weeklyActivity->image) }}" alt="Weekly Activity Image">
         @else

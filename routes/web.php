@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SupervisorController;
 use App\Http\Controllers\CoordinatorController;
+use App\Http\Controllers\CompanyController;
 use App\Mail\notification;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
@@ -37,6 +38,8 @@ Route::delete('/student/deleteLogbookWeek/{week}', [StudentController::class, 'd
 Route::get('/download-pdf/{week}',[StudentController::class, 'downloadActivityDetails']);
 
 
+//Route for company allocation
+Route::get('/pt',[CompanyController::class, 'ptAllocation']);
 
 Route::get('/logout', [StudentController::class, 'logout'])->name('logout');
 
@@ -63,9 +66,6 @@ Route::post('/applicationstore', [OrganizationController::class, 'ApplicationSto
 Route::get('/supervisor', [SupervisorController::class, 'index']);
 Route::get('/supervisor', [SupervisorController::class, 'showUserLogbook']);
 
-
-//For Coordinator Dashboard
-Route::get('/coordinator', [CoordinatorController::class, 'index']);
 
 //For the email notification service
 Route::get('/mail', function() {

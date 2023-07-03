@@ -75,39 +75,35 @@
         </div>
        <!-- /.card-header -->
        <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>File Submission</th>
-                      <th>Last Modified</th>
-                      <th>Date</th>
-                      <th>Status</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr data-widget="expandable-table" aria-expanded="false">
-                      
-                      @foreach($activities as $activity)
-                      <tr data-widget="expandable-table" aria-expanded="false">
-                      <td>1</td>
-                      <td> Log book week {{ $activity->week_number }}</td>
-                      <td>{{ $activity->updated_at }}</td>
-                      <td>{{ $activity->start_date . ' - ' . $activity->end_date }}</td>
-
-                     
-                          <td>
-                              <p>Submitted</p>
-                          </td>
-                          <td><i class="fa-solid fa-download" style="color: #a7aaaf;"></i>
-                            <button type="submit" id="linkModal1">View</button>
-                          </td>
-                        </tr>
-                  @endforeach
-                     
-                    </tbody>
-                </table>
+               
+                 
+                  @foreach ($activitiesByUsers as $user => $activities)
+                  <h3>{{ $user }}</h3>
+                  <table class="table table-hover text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>File Submission</th>
+                        <th>Last Modified</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                      <tbody>
+                          @foreach ($activities as $index => $activity)
+                              <tr data-widget="expandable-table" aria-expanded="false">
+                                  <td>{{ $index + 1 }}</td>
+                                  <td>Log book week {{ $activity->week_number }}</td>
+                                  <td>{{ $activity->updated_at ? $activity->updated_at->format('Y-m-d H:i:s') : 'N/A' }}</td>
+                                  <td>{{ $activity->start_date . ' - ' . $activity->end_date }}</td>
+                                  <!-- Other columns and actions for each activity -->
+                              </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
+              @endforeach
+              
               </div>
              
               <!-- /.card-body -->

@@ -61,6 +61,8 @@ Route::post('/applicationstore', [OrganizationController::class, 'ApplicationSto
 
 //For Supervisor Dashboard
 Route::get('/supervisor', [SupervisorController::class, 'index']);
+Route::get('/supervisor', [SupervisorController::class, 'showUserLogbook']);
+
 
 //For Coordinator Dashboard
 Route::get('/coordinator', [CoordinatorController::class, 'index']);

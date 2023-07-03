@@ -1,4 +1,4 @@
-@extends('layouts.navbar')
+@extends('layouts.coordinator')
 
 @section('content')
 <!-- Upper Section -->
@@ -6,7 +6,7 @@
     <div class="upper mt-2">
       <span class=" px-3">
      <a href="#">Application </a> 
-      <a href="#">/ {{ Auth::user()->name }} (Udicti-Coict)</a></span>
+      <a href="#">/ Coordinator</a></span>
       <div class="item-flex">
        <div > 
         <button type="submit" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2"><i class="fa-regular fa-pen-to-square"></i>Edit</button>
@@ -186,7 +186,7 @@
 
    <div class="flex items-center justify-center">
     <div class="border-t  border-gray-500 h-1 w-20 mr-2"></div>
-    <div class="text-center   whitespace-no-wrap">June 24,2022</div>
+    <div class="text-center   whitespace-no-wrap">July 02,2023</div>
     <div class="border-t  border-gray-500 h-1 w-20 ml-2"></div>
    </div>
 
@@ -194,8 +194,8 @@
     <div class="flex ml-2">
       <div>
       <i class="fa-solid fa-camera fa-xl" style="color: #919eb6;margin-top:8px;margin-right:2px;"></i></div>
-    <div class="ml-2"> <h1 class="text-gray-500"> Note by Allen A Mgeyekwa</h1>  
-      <h1 class="ml-2"> <li>PT Allocation created</li></h1> </div>  
+    <div class="ml-2"> <h1 class="text-gray-500"> Notifications</h1>  
+      <h1 class="ml-2"> <li>PT Allocation requested</li></h1> </div>  
                  
        </div>
 

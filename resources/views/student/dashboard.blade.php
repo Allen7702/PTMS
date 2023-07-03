@@ -112,7 +112,11 @@
                       <tr data-widget="expandable-table" aria-expanded="false">
                       <td>{{ $index + 1 }}</td>
                       <td> Log book week {{ $activity->week_number }}</td>
-                      <td>{{  $activity->last_modified  }}</td>
+
+                      <td>{{ $activity->last_modified}}</td>
+
+                      
+
                       <td>{{ $activity->start_date . ' - ' . $activity->end_date }}</td>
 
                      

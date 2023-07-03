@@ -95,7 +95,7 @@
                               <tr data-widget="expandable-table" aria-expanded="false">
                                   <td>{{ $index + 1 }}</td>
                                   <td>Log book week {{ $activity->week_number }}</td>
-                                  <td>{{ $activity->updated_at ? $activity->updated_at->format('Y-m-d H:i:s') : 'N/A' }}</td>
+                                  <td>{{ $activity->last_modified ? $activity->last_modified->format('Y-m-d H:i:s') : 'N/A' }}</td>
                                   <td>{{ $activity->start_date . ' - ' . $activity->end_date }}</td>
                                   <!-- Other columns and actions for each activity -->
                               </tr>

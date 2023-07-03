@@ -13,7 +13,7 @@
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="text-gray-700 font-semibold">Select Department</label>
                         <select name="department" class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 px-4 py-2">
-                            <option value="COICT">COICT </option>
+                            <option value="Computer Science and Engineering">Computer Science and Engineering </option>
                             <option value="COET">COET</option>
                             <!-- Add more options as needed -->
                         </select>

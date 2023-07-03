@@ -93,7 +93,7 @@ public function downloadActivityDetails($week)
     $dompdf->loadHtml($html);
     $dompdf->setPaper('A4', 'portrait');
     $dompdf->render();
-    $dompdf->stream('document.pdf', ['Attachment' => true]);
+    $dompdf->stream('logbook.pdf', ['Attachment' => true]);
    
 }
 

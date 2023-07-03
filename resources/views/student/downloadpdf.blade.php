@@ -15,29 +15,29 @@
     }
     
     .header {
-        font-size: 16px;
+        font-size: 18px;
         margin-bottom: 10px;
     }
     
     .sub-header {
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 10px;
     }
     
     .info-row {
         display: flex;
         justify-content: space-between;
-        width: 60%;
+        width: 90%;
         margin: 0 auto;
         margin-bottom: 10px;
     }
     
     .info-label {
-        font-size: 12px;
+        font-size: 15px;
     }
     
     .table {
-        width: 60%;
+        width: 90%;
         margin: 0 auto;
         border-collapse: collapse;
         margin-bottom: 20px;
@@ -51,7 +51,7 @@
     }
     
     .operation-table {
-        width: 60%;
+        width: 90%;
         margin: 0 auto;
         border-collapse: collapse;
         margin-bottom: 20px;
@@ -62,7 +62,7 @@
         border: 1px solid #000;
         padding: 8px;
         font-size: 12px;
-        width: 85%;
+        width: 95%;
     }
     
     .image-container {
@@ -85,14 +85,14 @@
     <div class="sub-header">PRACTICAL TRAINING LOG - BOOK</div>
     
     <div class="info-row">
-        <p class="info-label">STUDENTS NAME:{{ Auth::user()->name }} REG. NO: {{ Auth::user()->reg_no }} </p>
+        <p class="info-label">STUDENTS NAME:&nbsp;{{ strtoupper(Auth::user()->name) }}&nbsp;&nbsp;&nbsp;&nbsp; REG. NO:&nbsp; {{ Auth::user()->reg_no }} </p>
         <p class="info-label">COMPANY/INSTITUTION: UDICTI</p>
     </div>
 
-    <table class="table">
+    <table class="table" style="margin-bottom: 100px;">
         <thead>
             <tr>
-                <th>WEEK NO: {{ $activities[0]->week_number }}</th>
+                <th style="width:35%;text-align: center;">WEEK NO: {{ $activities[0]->week_number }}</th>
                 <th>FROM: &nbsp;&nbsp;{{ $activities->first()->date }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TO:&nbsp;&nbsp; {{ $activities->last()->date }}</th>
             </tr>
             <tr>
@@ -100,10 +100,10 @@
                 <th>ACTIVITY</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody >
             @foreach($activities as $activity)
             <tr>
-                <td>{{ date('l', strtotime($activity->date)) }}<br>{{ $activity->date }}</td>
+                <td style="text-align:center;">{{ date('l', strtotime($activity->date)) }}<br><br><br>{{ $activity->date }}</td>
                 <td>{{ $activity->activity }}</td>
             </tr>
             @endforeach

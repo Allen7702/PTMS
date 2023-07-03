@@ -20,6 +20,8 @@ class UserSeeder extends Seeder
             [
             'name' => 'Allen A Mgeyekwa',
             'email' => 'a@gmail.com',
+            'reg_no'=> '2020-04-06832',
+            'department' =>'COMPUTER SCIENCE AND ENGINEERING',
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'), // password
             'remember_token' => Str::random(10),
@@ -27,6 +29,8 @@ class UserSeeder extends Seeder
         [
             'name' => 'Valence Kapinga',
             'email' => 'v@gmail.com',
+            'reg_no'=> '2020-04-07831',
+            'department' =>'COMPUTER SCIENCE AND ENGINEERING',
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'), // password
             'remember_token' => Str::random(10),

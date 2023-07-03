@@ -108,11 +108,11 @@
                   <tbody>
                     <tr data-widget="expandable-table" aria-expanded="false">
                       
-                      @foreach($activities as $activity)
+                      @foreach($activities as $index => $activity)
                       <tr data-widget="expandable-table" aria-expanded="false">
-                      <td>1</td>
+                      <td>{{ $index + 1 }}</td>
                       <td> Log book week {{ $activity->week_number }}</td>
-                      <td>{{ $activity->updated_at }}</td>
+                      <td>{{ $activity->updated_at ? $activity->updated_at->format('Y-m-d H:i:s') : 'N/A' }}</td>
                       <td>{{ $activity->start_date . ' - ' . $activity->end_date }}</td>
 
                      
@@ -148,9 +148,7 @@
                     </tbody>
                 </table>
               </div>
-              @isset($activity)
-              @include('student.updateLogbook', ['activity' => $activity])
-              @endisset
+             
               <!-- /.card-body -->
             {{-- ******* --}}
             {{-- @@@@@@@@@ --}}

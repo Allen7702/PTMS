@@ -5,15 +5,15 @@
   <div class="mb-2 text-center">
     <h3 class="text-lg font-bold mb-2">UNIVERSITY OF DAR ES SALAAM</h3>
     <h3 class="text-lg font-bold mb-2">COLLEGE OF INFORMATION AND COMMUNICATION TECHNOLOGIES</h3>
-    <h3 class="text-lg font-bold mb-2">DEPARTMENT OF ………………………………………………………….</h3>
+    <h3 class="text-lg font-bold mb-2">DEPARTMENT OF {{ Auth::user()->department }} .</h3>
     <h3 class="text-lg font-bold mb-2">PRACTICAL TRAINING LOG - BOOK</h3>
   </div>
 
 </div>
 
 <div class="flex items-center justify-between  w-2/3 mx-auto">
-  <p class="mb-2">STUDENTS NAME: {{ Auth::user()->name }} REG. NO: …………………………………</p>
-  <p class="mb-2">COMPANY/INSTITUTION: ………………………………………………………………</p>
+  <p class="mb-2">STUDENTS NAME: {{ Auth::user()->name }} REG. NO:{{ Auth::user()->reg_no }}</p>
+  <p class="mb-2">COMPANY/INSTITUTION: UDICTI</p>
 </div>
 <table class="w-2/3 mx-auto md:m-16 border border-black mb-4 table-auto border-collapse border">
     <thead>

@@ -56,10 +56,13 @@ Route::middleware('auth')->group(function () {
 
 
 // For Organization Dashboard
-Route::get('/org',[OrganizationController::class, 'dashboard'])->name('organization.dashboard');
+Route::get('/organization',[OrganizationController::class, 'dashboard'])->name('organization.dashboard');
 Route::get('/app', [OrganizationController::class, 'application'])->name('organization.pages.application');
 Route::get('/tables', [OrganizationController::class, 'table'])->name('organization.pages.tables');
 Route::get('/signin', [OrganizationController::class, 'signin'])->name('organization.pages.signin');
+Route::post('/signin', [OrganizationController::class, 'ValSignIn'])->name('signin.submit');
+Route::get('/signup', [OrganizationController::class, 'signup'])->name('organization.signup');
+Route::post('/signup', [OrganizationController::class, 'ValSignUp'])->name('signup.submit');
 Route::post('/applicationstore', [OrganizationController::class, 'ApplicationStore']);
 
 //For Supervisor Dashboard

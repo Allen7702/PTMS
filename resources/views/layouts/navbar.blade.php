@@ -21,6 +21,11 @@
   <!-- summernote css -->
   <link rel="stylesheet" href="{{asset('summernote/summernote-bs4.min.css')}}">
 
+
+  <!-- toastr css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  
    <!-- Scripts -->
    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -202,6 +207,19 @@ $('#logout-form').submit();
       $('#summernote').summernote()
     })
   </script>
+<!-- Include the Toastr CSS and JS files -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+<!-- Initialize Toastr -->
+<script>
+  toastr.options = {
+    closeButton: true,
+    progressBar: true,
+    positionClass: 'toast-top-right', // Adjust the position as needed
+    timeOut: 5000, // Display time (in milliseconds)
+  };
+</script>
 
 
 <script src="{{asset('js/script.js')}}"></script>

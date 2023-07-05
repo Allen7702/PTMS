@@ -22,10 +22,10 @@
   <link rel="stylesheet" href="{{asset('summernote/summernote-bs4.min.css')}}">
 
 
-  <!-- toastr css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-  
+ {{-- toastr --}}
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+
+
    <!-- Scripts -->
    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -207,20 +207,21 @@ $('#logout-form').submit();
       $('#summernote').summernote()
     })
   </script>
-<!-- Include the Toastr CSS and JS files -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-<!-- Initialize Toastr -->
-<script>
-  toastr.options = {
-    closeButton: true,
-    progressBar: true,
-    positionClass: 'toast-top-right', // Adjust the position as needed
-    timeOut: 5000, // Display time (in milliseconds)
-  };
-</script>
+  {{-- toastr js --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
+  <script>
+      $(document).ready(function() {
+          toastr.options.timeOut = 10000;
+          @if (Session::has('error'))
+              toastr.error('{{ Session::get('error') }}');
+          @elseif(Session::has('success'))
+              toastr.success('{{ Session::get('success') }}');
+          @endif
+      });
+
+  </script>
 
 <script src="{{asset('js/script.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>

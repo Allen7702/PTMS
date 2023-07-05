@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->integer('week_number'); 
-            $table->text('weekly_description');
-            $table->text('tools_used');
+            $table->text('weekly_description')->nullable();
+            $table->text('tools_used')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
 

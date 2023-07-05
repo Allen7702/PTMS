@@ -37,7 +37,7 @@ public function ApplicationStore(Request $request)
 
         $application->save();
     
-        return redirect('/org');
+        return redirect('/organization');
     }
 
 public function table(){

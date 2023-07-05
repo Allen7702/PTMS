@@ -49,7 +49,7 @@
                      </div>
                      <div class="w-full md:w-1/2 px-3">
                         <label class="text-gray-700 font-semibold">Select Region</label>
-                        <select id="course" name="course" class="mt-1 block w-full rounded-md bg-gray-100 border border-black-700  focus:ring-0 px-4 py-2">
+                        <select id="region" name="region" class="mt-1 block w-full rounded-md bg-gray-100 border border-black-700  focus:ring-0 px-4 py-2">
                             <option value="Dar es Salaam" >Dar es Salaam</option>
                             <option value="Arusha" >Arusha</option>
                             <option value="Morogoro" >Morogoro</option>
@@ -66,6 +66,8 @@
                      <div class="col-span-1 w-full md:w-1/2 px-3">
             <label class="text-gray-700 font-semibold">Number of Students</label>
             <input type="number" id="number_students" name="number_students"  class="appearance-none block w-1/2 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <input type="hidden" id="company_name" name="company_name"  class="appearance-none block w-1/2 text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" value="{{ session('company_name') }}">
+
             </div>
                 </div>
                 

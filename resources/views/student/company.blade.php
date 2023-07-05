@@ -128,42 +128,28 @@
   <thead>
     <tr class="bg-gray-200">
       <th>Company</th>
+      <th>Department</th>
       <th>Region</th>
-      <th>Academic Year</th>
       <th>Year of Study &amp; Course</th>
-      <th>Remaining Chances</th>
+      <th>Chances</th>
       <th>Days until open</th>
     </tr>
   </thead>
   <tbody>
-   <tr class="border-bottom">
-    <td>Medikea Afya App</td>
-    <td>Dar es Salaam</td>
-    <td>3rd Year</td>
-    <td>3rd Year(CS & CEIT)</td>
-    <td class="px-5">10</td>
-    <td class="px-5">1</td>
-</tr>
-   <tr class="border-bottom">
-    <td>Finhub</td>
-    <td>Dar es Salaam</td>
-    <td>2nd Year</td>
-    <td>2nd Year(BIT)</td>
-    <td class="px-5">3</td>
-    <td class="px-5">3</td>
-</tr>
-   <tr class="border-bottom">
-    <td>Y4c</td>
-    <td>Dar es Salaam</td>
-    <td>1st Year</td>
-    <td>1st Year(Telecom and EE)</td>
-    <td class="px-5">6</td>
-    <td class="px-5">2</td>
-</tr>
-  
-    <!-- Table rows go here -->
+    @foreach ($applications as $application)
+      <tr>
+        <td>{{ $application->company_name }}</td>
+        <td>{{ $application->department }}</td>
+        <td>{{ $application->region }}</td>
+        <td>{{ $application->year }} - {{ $application->course }}</td>
+        <td>{{ $application->number_students}}</td>
+        <td>{{ $randomNumber }}</td>
+      </tr>
+    @endforeach
   </tbody>
 </table>
+  
+
 
 </div>
 @endsection

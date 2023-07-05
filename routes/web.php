@@ -4,7 +4,6 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SupervisorController;
-use App\Http\Controllers\CoordinatorController;
 use App\Http\Controllers\CompanyController;
 use App\Mail\notification;
 use Illuminate\Support\Facades\Route;

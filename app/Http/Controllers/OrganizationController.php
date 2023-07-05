@@ -30,6 +30,7 @@ public function ApplicationStore(Request $request)
     {
         $application = new application;
         $application->department = $request->department;
+        $application->region = $request->region;
         $application->course = $request->course;
         $application->year = $request->year;
         $application->college = $request->college;

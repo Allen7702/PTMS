@@ -48,7 +48,7 @@
        <ul class="nav-links">
         <li><a href="#" class="text-lg mx-4">Student</a></li>
         <li><a href="#">Location Preference</a></li>
-        <li><a href="#">PT Allocation</a></li>
+        <li><a href="{{route('student.company')}}">PT Allocation</a></li>
         <li><a href="#">Resources</a></li>
        </ul>
     </div>

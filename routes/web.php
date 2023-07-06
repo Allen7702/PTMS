@@ -38,7 +38,7 @@ Route::get('/download-pdf/{week}',[StudentController::class, 'downloadActivityDe
 
 
 //Route for company allocation
-Route::get('/pt',[CompanyController::class, 'ptAllocation']);
+Route::get('/pt',[CompanyController::class, 'ptAllocation'])->name('student.company');
 
 Route::get('/logout', [StudentController::class, 'logout'])->name('logout');
 

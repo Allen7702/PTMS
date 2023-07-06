@@ -153,9 +153,7 @@
                 </table>
               </div>
              
-              <!-- /.card-body -->
-            {{-- ******* --}}
-            {{-- @@@@@@@@@ --}}
+            
            
             <div id="modalpop" class="offmodal mx-5 bg-green-500">
               <div class="modal-container table-responsive px-10 ">
@@ -247,7 +245,7 @@
               </div>
             </div>
             
-            {{-- @@@@@@@@@ --}}
+          
            
             </div>
           </div>
@@ -287,7 +285,7 @@
     <div class="flex ml-2">
       <div>
       <i class="fa-solid fa-camera fa-xl" style="color: #919eb6;margin-top:8px;margin-right:2px;"></i></div>
-    <div class="ml-2"> <h1 class="text-gray-500"> Note by Allen A Mgeyekwa</h1>  
+    <div class="ml-2"> <h1 class="text-gray-500"> Note by  {{ Auth::user()->name }}</h1>  
       <h1 class="ml-2"> <li>PT Allocation created</li></h1> </div>  
                  
        </div>

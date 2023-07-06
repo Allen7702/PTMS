@@ -115,10 +115,10 @@
               <p class="pt-2 mb-1 font-semibold">About Us</p>
               <h5 class="font-bold">University of Dar es Salaam</h5>
               <p class="mb-12">The University of Dar es Salaam is the oldest and biggest public university in Tanzania. It's about people making a difference in the world.</p>
-              <a class="mt-auto mb-0 text-sm font-semibold leading-normal group text-slate-500" href="javascript:;">
+              <!-- <a class="mt-auto mb-0 text-sm font-semibold leading-normal group text-slate-500" href="javascript:;">
                 Learn More
                 <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
-              </a>
+              </a> -->
             </div>
           </div>
           <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
@@ -139,10 +139,10 @@
         <div class="relative z-10 flex flex-col flex-auto h-full p-4">
           <h5 class="pt-2 mb-6 font-bold text-white">Upcoming Events</h5>
           <p class="text-white">CALL FOR PARTICIPATIONS; THE DAR ES SALAAM METHODOLOGY SCHOOL: SOURCES AND METHODS ON SLAVERY AND POST-SLAVERY IN EAST AFRICA!</p>
-          <a class="mt-auto mb-0 text-sm font-semibold leading-normal text-white group" href="javascript:;">
+          <!-- <a class="mt-auto mb-0 text-sm font-semibold leading-normal text-white group" href="javascript:;">
             Learn More
             <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>
-          </a>
+          </a> -->
         </div>
       </div>
     </div>
@@ -164,7 +164,7 @@
               <h5 class="font-bold">Upcoming Events and Deadlines</h5>
               <div class="mb-12">
                 
-                <iframe src="https://calendar.google.com/calendar/embed?src=781c29de505a642ed4ba0807b39abbcde5f96e4f46e5101959e548730faac356%40group.calendar.google.com&ctz=Africa%2FNairobi" style="border: 0" width="1550" height="800" frameborder="0" scrolling="no"></iframe>              </div>
+                <iframe src="https://calendar.google.com/calendar/embed?src=781c29de505a642ed4ba0807b39abbcde5f96e4f46e5101959e548730faac356%40group.calendar.google.com&ctz=Africa%2FNairobi" style="border: 0" width="1200" height="800" frameborder="0" scrolling="no"></iframe>              </div>
                 <a class="mt-auto mb-0 text-sm font-semibold leading-normal group text-slate-500" href="javascript:;">
                 Full Calendar
                 <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"></i>

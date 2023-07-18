@@ -1,66 +1,86 @@
+# Practical Training Management System
 
+This Laravel project aims to enhance the logbook implementation and organization process for practical training. It provides a comprehensive system for students to submit daily logbook entries, generate reports, and receive feedback from their supervisors. Additionally, supervisors have access to a dedicated dashboard to review and manage the submitted logbooks.On top of that there is an organization dashboard dedicated for organizations where they can select the number of students they want for practical training
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Installation
 
-## About Laravel
+To set up and run the Practical Training Management System on your local machine, follow these steps:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. Clone the repository to your local environment:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```
+git clone https://github.com/PTMS.git
+```
 
+2. Navigate to the project directory:
 
-## Learning Laravel
+```
+cd PTMS
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. Install the project dependencies using Composer:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```
+composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. Copy the `.env.example` file to create a new `.env` file:
 
-## Laravel Sponsors
+```
+cp .env.example .env
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+5. Generate an application key:
 
-### Premium Partners
+```
+php artisan key:generate
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+6. Configure the database settings in the `.env` file, including the database connection, host, username, password, and database name.
 
-## Contributing
+7. Run the database migrations to set up the required tables:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+php artisan migrate
+```
 
-## Code of Conduct
+8.  Seed the database with sample data:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+php artisan db:seed
+```
 
-## Security Vulnerabilities
+9. Serve the application locally:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+php artisan serve
+```
+10. And run npm run dev Serve :
 
-## License
+```
+npm run dev
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# PTMS
+10. Access the application by visiting `http://localhost:8000` in your web browser.
+
+## Setup and Run
+
+Once the application is installed and running, follow these steps to set up and utilize the logbook management features:
+
+1. Sign in as a student or supervisor using the provided login form.
+   use username: a@gmail.com
+       password: 12345678
+
+2. As a student, you can add new logbook entries by navigating to the "Logbook" section and filling out the necessary details such as the date and activity description. Submit the logbook entry to save it.
+
+3. Students can view and manage their submitted logbooks in the "My Logbooks" section. They can edit, delete, and download their logbook entries as required.
+
+4. Supervisors have access to the supervisor dashboard, where they can review all the logbooks submitted by students. The dashboard provides a summary view of logbooks grouped by week number, displaying the last modification date and the start and end dates of each week.
+   Access the supervisor dashboard from `http://localhost:8000/supervisor`
+
+5. Supervisors can click on individual logbooks to view the details, including the student's name, submission date, logbook entries, and any attachments. They can provide feedback and comments to the students as necessary.
+
+6. Notifications are sent to both students and supervisors when logbooks are submitted or when feedback/comments are received.
+   
+7. To access the organization dashboard go to `http://localhost:8000/signup` where you'll create an organization account and go to `http://localhost:8000/signin` and sign in
+

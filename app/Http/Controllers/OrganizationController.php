@@ -16,7 +16,7 @@ public function dashboard(){
     } else {
         // Handle the case when the user is not logged in
         // For example, you could redirect them to the login page
-        return redirect('/organization');
+        return view('organization.pages.dashboard');
     }
 return view('organization.pages.dashboard');
 }
@@ -82,7 +82,7 @@ public function ValSignUp(Request $request)
 
     Auth::guard('organization')->login($organization);
 
-    return redirect('/organization');
+    return redirect('/signin');
 }
 
 }

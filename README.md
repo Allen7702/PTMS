@@ -82,5 +82,5 @@ Once the application is installed and running, follow these steps to set up and 
 
 6. Notifications are sent to both students and supervisors when logbooks are submitted or when feedback/comments are received.
    
-7. To access the organization dashboard go to `http://localhost:8000/signup` where you'll create an organization account and go to `http://localhost:8000/signin` and sign in
+7. To access the organization dashboard go to `http://localhost:8000/organization` or `http://localhost:8000/signup` where you'll create an organization account and go to `http://localhost:8000/signin` and sign in
 

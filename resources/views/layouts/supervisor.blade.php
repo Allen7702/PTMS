@@ -84,7 +84,7 @@
                   Valence  lugimbana
                   <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                 </h3>
-                <p class="text-sm">This system is so good</p>
+                <p class="text-sm">This system is good</p>
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
